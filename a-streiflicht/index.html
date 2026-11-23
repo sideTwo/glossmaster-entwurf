@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Autoaufbereitung & Schulungen in Aalen | GlossMaster</title>
+<meta name="description" content="Lackkorrektur, Keramikversiegelung und Innenaufbereitung im Studio Aalen – und 1:1-Schulungen der GlossMaster Academy mit Zertifikat." />
+<!--
+  Entwurf A „Streiflicht“ – Startseite (sideTwo, 2026-11-23)
+  Hero-Foto vorläufig (Porsche 992). Die Animation am Porsche 996 kommt nach dem Termin am 25.11.
+  Alle Inhalte, Preise und Stimmen von glossmaster.de (Stand 2026-11-23).
+-->
+<link rel="preload" href="../assets/schrift/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="stil.css" />
+<style>
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: min(calc(100vh - var(--kopf)), 980px); min-height: min(calc(100svh - var(--kopf)), 980px);
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .hero-foto { position: absolute; top: 0; right: 0; bottom: 0; width: 54vw; }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+  .hero-foto::after {
+    content: ""; position: absolute; inset: 0;
+    background:
+      linear-gradient(90deg, var(--grund) 0%, rgba(14,15,20,.82) 18%, rgba(14,15,20,.15) 52%, rgba(14,15,20,0) 75%),
+      linear-gradient(0deg, var(--grund) 0%, rgba(14,15,20,0) 30%);
+  }
+  .hero::after {
+    content: ""; position: absolute; inset: -30% -40%; pointer-events: none; z-index: 2;
+    background: linear-gradient(105deg, transparent 44%, rgba(255,255,255,.035) 47%, rgba(255,255,255,.16) 50%, rgba(211,155,234,.08) 52.5%, transparent 56%);
+    transform: translateX(-55%); mix-blend-mode: screen;
+    animation: streif 8s cubic-bezier(.6,0,.3,1) infinite;
+  }
+  .hero-inhalt { position: relative; z-index: 1; width: 100%; padding-top: clamp(48px, 7vh, 96px); padding-bottom: clamp(36px, 6vh, 72px); }
+  .hero-text { max-width: min(58vw, 980px); }
+  .hero h1 { font-size: clamp(40px, 4.6vw, 92px); font-stretch: 112%; font-weight: 800; margin: 22px 0 26px; hyphens: manual; text-wrap: balance; text-shadow: 0 2px 30px rgba(14,15,20,.55); }
+  .hero .lead { margin-bottom: 34px; }
+  .hero .knoepfe .pfeil { margin-left: 10px; }
+  .fakten {
+    display: grid; grid-template-columns: repeat(4, auto); justify-content: start; gap: 12px 48px;
+    margin-top: clamp(40px, 7vh, 88px); padding-top: 22px; border-top: 1px solid var(--linie); font-size: 15px; color: var(--gedimmt);
+  }
+  .fakten b { display: block; font-size: 22px; font-weight: 760; font-stretch: 112%; color: var(--text); }
+
+  /* ---------- Anspruch: großer Schriftzug ---------- */
+  .anspruch .gross {
+    font-size: clamp(36px, 7.4vw, 150px); font-weight: 800; font-stretch: 125%; letter-spacing: -.03em; line-height: .98;
+    margin: 26px 0 40px; hyphens: manual;
+  }
+  .anspruch-fuss { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; border-top: 1px solid var(--linie); padding-top: 26px; }
+  .anspruch-fuss p { color: var(--gedimmt); font-size: 17px; }
+  .anspruch-fuss b { display: block; color: var(--text); font-size: 20px; font-weight: 720; font-stretch: 112%; margin-bottom: 6px; }
+
+  /* ---------- Vorher/Nachher über die volle Breite ---------- */
+  .vn-voll { position: relative; height: clamp(440px, 74vh, 800px); background: #000; }
+  .vn-voll img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+  .vn-voll .verlauf { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14,15,20,.88) 0%, rgba(14,15,20,0) 38%, rgba(14,15,20,0) 75%, rgba(14,15,20,.75) 100%); }
+  .vn-voll .huelle { position: absolute; left: 0; right: 0; top: clamp(32px, 6vh, 64px); z-index: 2; }
+  .vn-voll h2 { max-width: 15ch; margin-bottom: 0; }
+  .marke {
+    position: absolute; bottom: 24px; z-index: 2;
+    font-size: 14px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+    background: rgba(14,15,20,.72); backdrop-filter: blur(6px); border-radius: 999px; padding: 10px 18px;
+  }
+  .marke.vorher { left: var(--rand); }
+  .marke.nachher { left: calc(50% + 24px); color: var(--violett-hell); }
+  .vn-unter { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-top: 16px; font-size: 15px; color: var(--gedimmt); }
+
+  /* ---------- Leistungen als Mosaik ---------- */
+  .leist-kopf { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 80px); align-items: end; margin-bottom: 48px; }
+  .leist-kopf h2 { margin-bottom: 0; }
+  .leist-kopf .lead { margin-bottom: 14px; }
+  .mosaik { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: clamp(240px, 20vw, 330px); gap: 14px; }
+  .kachel { position: relative; border-radius: 18px; overflow: hidden; text-decoration: none; background: var(--flaeche); display: flex; align-items: flex-end; }
+  .kachel img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .kachel:hover img { transform: scale(1.04); }
+  .kachel::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(0deg, rgba(14,15,20,.92) 0%, rgba(14,15,20,.35) 45%, rgba(14,15,20,0) 75%); }
+  .kachel-text { position: relative; z-index: 2; padding: 24px; }
+  .kachel .preis { display: inline-block; font-size: 14px; font-weight: 700; letter-spacing: .08em; color: var(--grund); background: var(--violett-hell); border-radius: 999px; padding: 5px 12px; margin-bottom: 12px; }
+  .kachel h3 { font-size: clamp(22px, 1.7vw, 28px); font-weight: 760; }
+  .kachel p { margin-top: 6px; font-size: 16px; color: rgba(236,234,240,.82); line-height: 1.45; }
+  .kachel.gross { grid-column: span 2; grid-row: span 2; }
+  .kachel.gross h3 { font-size: clamp(28px, 2.6vw, 44px); }
+  .kachel.text { background: linear-gradient(145deg, #2a1734, var(--flaeche) 70%); border: 1px solid rgba(211,155,234,.25); align-items: stretch; }
+  .kachel.text::before { display: none; }
+  .kachel.text .kachel-text { display: flex; flex-direction: column; justify-content: space-between; width: 100%; }
+  .kachel.text ul { list-style: none; display: grid; gap: 8px; font-size: 17px; }
+  .kachel.text li { display: flex; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--linie); padding-bottom: 8px; }
+  .kachel.text li b { font-weight: 720; white-space: nowrap; }
+
+  /* ---------- Academy-Teaser ---------- */
+  .aca { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(28px, 6vw, 110px); align-items: center; }
+  .aca-text { position: relative; }
+  .riesig {
+    position: absolute; top: -.32em; left: -.04em; z-index: 0; pointer-events: none;
+    font-size: clamp(180px, 22vw, 400px); font-weight: 800; font-stretch: 125%; line-height: 1; letter-spacing: -.04em;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(211,155,234,.28);
+  }
+  .aca-text > *:not(.riesig) { position: relative; z-index: 1; }
+  .kursliste { list-style: none; margin: 32px 0 34px; border-top: 1px solid var(--linie); }
+  .kursliste li { display: grid; grid-template-columns: 1fr auto auto; gap: 20px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--linie); }
+  .kursliste b { font-size: 21px; font-weight: 720; font-stretch: 112%; }
+  .kursliste span { font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--gedimmt); }
+  .kursliste em { font-style: normal; font-size: 21px; font-weight: 760; }
+  .fotostapel { position: relative; height: clamp(460px, 44vw, 680px); }
+  .fotostapel img { position: absolute; object-fit: cover; border-radius: 18px; box-shadow: 0 40px 80px rgba(0,0,0,.5); }
+  .fotostapel .eins { left: 0; top: 0; width: 66%; height: 78%; }
+  .fotostapel .zwei { right: 0; bottom: 0; width: 46%; height: 62%; border: 6px solid var(--flaeche); }
+  .fotostapel .zitatkarte {
+    position: absolute; left: 6%; bottom: 4%; max-width: 46%; z-index: 2;
+    background: var(--grund); border: 1px solid var(--linie); border-radius: 16px; padding: 18px 20px; font-size: 16px; line-height: 1.45;
+  }
+  .fotostapel .zitatkarte cite { display: block; margin-top: 8px; font-style: normal; font-size: 13px; color: var(--gedimmt); }
+
+  /* ---------- Qualitätsbetrieb: Bild randabfallend links ---------- */
+  .siegel { position: relative; overflow: hidden; }
+  .siegel-bild { position: absolute; top: 0; bottom: 0; left: 0; width: 46vw; }
+  .siegel-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+  .siegel-bild::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, var(--grund) 0%, rgba(14,15,20,.2) 35%, rgba(14,15,20,0) 60%); }
+  .siegel .huelle { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; }
+  .siegel-text { grid-column: 2; padding: clamp(80px, 10vw, 150px) 0 clamp(80px, 10vw, 150px) clamp(0px, 3vw, 48px); }
+  .siegel .haken { margin: 26px 0 34px; font-size: 18px; }
+
+  /* ---------- Stimmen ---------- */
+  .stimmen { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 6vw, 100px); align-items: start; }
+  .stimme blockquote { font-size: clamp(26px, 2.6vw, 44px); line-height: 1.2; font-weight: 600; font-stretch: 112%; letter-spacing: -.01em; }
+  .stimme.klein blockquote { font-size: 21px; font-weight: 500; font-stretch: 100%; line-height: 1.45; }
+  .stimme cite { display: block; margin-top: 14px; font-style: normal; font-size: 15px; color: var(--gedimmt); }
+  .stimmen-rechts { display: grid; gap: 32px; padding-top: 10px; }
+  .stimmen-rechts .stimme { padding-top: 26px; border-top: 1px solid var(--linie); }
+  .partner { margin-top: clamp(56px, 7vw, 96px); padding-top: 24px; border-top: 1px solid var(--linie); display: flex; gap: 16px 48px; flex-wrap: wrap; align-items: baseline; color: var(--gedimmt); font-size: 15px; }
+  .partner b { color: var(--text); font-size: 22px; font-weight: 720; font-stretch: 112%; }
+
+  @media (max-width: 1080px) {
+    .mosaik { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .anspruch-fuss { grid-template-columns: 1fr; gap: 18px; }
+  }
+  @media (max-width: 860px) {
+    .hero { min-height: 0; display: block; }
+    .hero-foto { position: relative; width: 100%; height: 52vh; min-height: 320px; max-height: 520px; }
+    .hero-foto::after { background: linear-gradient(0deg, var(--grund) 0%, rgba(14,15,20,.2) 45%, rgba(14,15,20,0) 70%); }
+    .hero-inhalt { margin-top: -120px; padding-top: 0; }
+    .hero-text { max-width: none; }
+    .fakten { grid-template-columns: 1fr 1fr; gap: 18px 20px; margin-top: 32px; }
+    .leist-kopf, .aca, .stimmen { grid-template-columns: minmax(0, 1fr); }
+    .siegel-bild { position: relative; width: 100%; height: 50vh; min-height: 300px; }
+    .siegel-bild::after { background: linear-gradient(0deg, var(--grund) 0%, rgba(14,15,20,0) 50%); }
+    .siegel .huelle { grid-template-columns: minmax(0, 1fr); }
+    .siegel-text { grid-column: 1; padding: 8px 0 80px; }
+    .fotostapel { height: 420px; }
+    .anspruch .gross { font-stretch: 100%; }
+  }
+  @media (max-width: 560px) {
+    .mosaik { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 260px; }
+    .kachel.gross { grid-column: auto; grid-row: span 1; }
+    .vn-voll { height: 420px; }
+    .vn-voll img { object-position: 50% 100%; }
+    .marke { bottom: 14px; font-size: 12px; padding: 7px 12px; }
+    .marke.nachher { left: calc(50% + 12px); }
+    .kursliste li { grid-template-columns: 1fr auto; }
+    .kursliste span { display: none; }
+    .fotostapel { height: 360px; }
+    .fotostapel .zitatkarte { max-width: 70%; font-size: 15px; }
+    .hero .knoepfe .pfeil { margin: 8px 0 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="huelle">
+    <a class="logo" href="./" aria-label="GlossMaster – zur Startseite"><img src="../assets/bilder/logo.png" alt="GlossMaster – Detailing, Carcare, Passion" width="900" height="332" /></a>
+    <nav class="haupt" aria-label="Hauptmenü">
+      <a href="preisliste/">Aufbereitung</a>
+      <a href="academy/">Academy</a>
+      <a href="https://glossmaster.de/shop/">Shop</a>
+      <a href="qualitaetsbetrieb/">Qualitätsbetrieb</a>
+      <a href="kontakt/">Kontakt</a>
+    </nav>
+    <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
+  </div>
+  <nav class="menue-zeile" aria-label="Hauptmenü mobil">
+    <a href="preisliste/">Aufbereitung</a>
+    <a href="academy/">Academy</a>
+    <a href="https://glossmaster.de/shop/">Shop</a>
+    <a href="qualitaetsbetrieb/">Qualitätsbetrieb</a>
+    <a href="kontakt/">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= Hero ================= -->
+  <section class="hero">
+    <figure class="hero-foto">
+      <!-- Platzhalter bis zur Animation am Porsche 996 (Aufnahmen am 25.11.) -->
+      <img src="../assets/bilder/porsche-studio.webp" alt="Porsche unter dem Wabenlicht im GlossMaster-Studio in Aalen" />
+    </figure>
+    <div class="huelle hero-inhalt">
+      <div class="hero-text">
+        <p class="eyebrow">Studio Aalen · Termine nach Vereinbarung</p>
+        <h1>Autoauf&shy;bereitung &amp; Schulungen in&nbsp;<em>Aalen.</em></h1>
+        <p class="lead">Lackkorrektur, Keramikversiegelung und Innenraum im eigenen Studio – und 1:1-Kurse für alle, die es selbst lernen wollen.</p>
+        <div class="knoepfe">
+          <a class="knopf voll" href="tel:+4915259304495">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            Anrufen
+          </a>
+          <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp schreiben</a>
+          <a class="pfeil" href="academy/">Zu den Kursen</a>
+        </div>
+      </div>
+      <div class="fakten">
+        <span><b>5+ Jahre</b>Praxis in der Aufbereitung</span>
+        <span><b>1:1</b>Jeder Kurs einzeln</span>
+        <span><b>ab 59 €</b>Feste Startpreise</span>
+        <span><b>GM-Siegel</b>Qualitätsbetrieb</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Anspruch ================= -->
+  <section class="abschnitt eng anspruch" aria-label="Unser Anspruch">
+    <div class="huelle">
+      <p class="eyebrow">Unser Anspruch</p>
+      <p class="gross glanz">Perfektion vor Schnellig&shy;keit.</p>
+      <div class="anspruch-fuss">
+        <p><b>1 bis 5 Tage</b>dauert eine mehrstufige Lackkorrektur – je nach Fahrzeuggröße und Zustand des Lacks.</p>
+        <p><b>Unter Speziallicht</b>kontrollieren wir jeden Durchgang. Was dort nicht sauber ist, polieren wir nach.</p>
+        <p><b>Im eigenen Studio</b>in Aalen, Carl-Zeiss-Straße 87. Termine nur nach Vereinbarung.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Vorher/Nachher ================= -->
+  <section aria-labelledby="t-streif">
+    <div class="vn-voll streif">
+      <img src="../assets/bilder/lack-vorher-nachher.jpg" alt="Dunkelblauer Lack: links vorher mit Kratzern und Hologrammen, rechts nach der Politur" loading="lazy" />
+      <div class="verlauf" aria-hidden="true"></div>
+      <div class="huelle">
+        <p class="eyebrow">Im Streiflicht</p>
+        <h2 id="t-streif">Was das Auge übersieht, zeigt das <em>Licht.</em></h2>
+      </div>
+      <span class="marke vorher">Vorher</span>
+      <span class="marke nachher">Nachher</span>
+    </div>
+    <div class="huelle vn-unter"><span>Dunkelblauer Lack unter Speziallicht, Studio Aalen.</span><span>Kratzer und Hologramme sieht man erst im schrägen Licht.</span></div>
+  </section>
+
+  <!-- ================= Leistungen ================= -->
+  <section class="abschnitt" aria-labelledby="t-auf">
+    <div class="huelle">
+      <div class="leist-kopf">
+        <div>
+          <p class="eyebrow">Aufbereitung</p>
+          <h2 id="t-auf">Was wir für dein Auto <em>tun.</em></h2>
+        </div>
+        <div>
+          <p class="lead">Feste Startpreise für Fahrzeuge bis Golf-Größe. Den Endpreis nennen wir dir, nachdem wir den Zustand gesehen haben.</p>
+          <a class="pfeil" href="preisliste/">Komplette Preisliste</a>
+        </div>
+      </div>
+      <div class="mosaik">
+        <a class="kachel gross streif" href="preisliste/#polieren">
+          <img src="../assets/bilder/polieren-marcello.jpg" alt="Maschinenpolitur im Studio Aalen" loading="lazy" />
+          <div class="kachel-text"><span class="preis">ab 249 €</span><h3>Polieren &amp; Lackkorrektur</h3><p>1–2-Step-Maschinenpolitur, Kontrolle mit Speziallicht. Unser Bestseller.</p></div>
+        </a>
+        <a class="kachel" href="preisliste/#keramik">
+          <img src="../assets/bilder/keramik.jpg" alt="Auftrag einer Keramikversiegelung" loading="lazy" />
+          <div class="kachel-text"><span class="preis">ab 799 €</span><h3>Keramik&shy;versiegelung</h3></div>
+        </a>
+        <a class="kachel" href="preisliste/#innen">
+          <img src="../assets/bilder/dampf.webp" alt="Innenraum-Reinigung mit Dampf" loading="lazy" />
+          <div class="kachel-text"><span class="preis">ab 99 €</span><h3>Innenraum</h3></div>
+        </a>
+        <a class="kachel" href="kontakt/">
+          <img src="../assets/bilder/leder-vorher-nachher.jpg" alt="Ledersitz vor und nach der Reparatur" loading="lazy" />
+          <div class="kachel-text"><span class="preis">auf Anfrage</span><h3>Lederreparatur</h3></div>
+        </a>
+        <a class="kachel text" href="preisliste/#extras">
+          <div class="kachel-text">
+            <h3>Außen &amp; Extras</h3>
+            <ul>
+              <li>Außenwäsche Premium <b>ab 59 €</b></li>
+              <li>Motorraum <b>ab 59 €</b></li>
+              <li>Trockeneis <b>ab 100 €</b></li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Academy ================= -->
+  <section class="abschnitt hell" aria-labelledby="t-aca">
+    <div class="huelle aca">
+      <div class="aca-text">
+        <span class="riesig" aria-hidden="true">1:1</span>
+        <p class="eyebrow">GlossMaster Academy</p>
+        <h2 id="t-aca">Lern es am echten Lack. Mit <em>Zertifikat.</em></h2>
+        <p class="lead">Einzelschulungen im Studio Aalen, für Einsteiger und für Profis. Den Termin stimmen wir mit dir ab.</p>
+        <ul class="kursliste">
+          <li><b>Polierschulung</b><span>4–6 Std.</span><em>379 €</em></li>
+          <li><b>Keramikversiegelung</b><span>4–6 Std.</span><em>419 €</em></li>
+          <li><b>Komplettaufbereitung</b><span>2 Tage</span><em>890 €</em></li>
+        </ul>
+        <div class="knoepfe">
+          <a class="knopf voll" href="academy/">Alle 7 Kurse ansehen</a>
+          <a class="pfeil" href="academy/#fragen">Häufige Fragen</a>
+        </div>
+      </div>
+      <div class="fotostapel">
+        <img class="eins" src="../assets/bilder/schulung-polieren.jpg" alt="Teilnehmer poliert unter Anleitung von Marcello Marino" loading="lazy" />
+        <img class="zwei" src="../assets/bilder/zertifikat-studio.jpg" alt="Kursabschluss mit Zertifikat im Studio" loading="lazy" />
+        <blockquote class="zitatkarte">„Du arbeitest selbst – ich greife ein, bevor du dir den Lack kaputt machst.“<cite>Marcello Marino, Trainer</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Qualitätsbetrieb ================= -->
+  <section class="siegel" aria-labelledby="t-siegel">
+    <figure class="siegel-bild">
+      <img src="../assets/bilder/qualitaetsbetrieb.jpg" alt="Marcello Marino mit dem Schild GM Qualitätsbetrieb 2026" loading="lazy" />
+    </figure>
+    <div class="huelle">
+      <div class="siegel-text">
+        <p class="eyebrow">GM Qualitätsbetrieb</p>
+        <h2 id="t-siegel">Nicht jeder Betrieb wird <em>aufgenommen.</em></h2>
+        <p class="lead">Das GM-Siegel zeigt Kunden, welche Aufbereiter nach dem GlossMaster-Standard arbeiten.</p>
+        <ul class="haken">
+          <li>Jährlich geprüft – Qualität ist ein fortlaufender Prozess.</li>
+          <li>Sichtbar für Kunden im GlossMaster-Netzwerk.</li>
+          <li>Anfragen leiten wir an aufgenommene Betriebe weiter.</li>
+        </ul>
+        <div class="knoepfe">
+          <a class="knopf voll" href="qualitaetsbetrieb/">So läuft die Aufnahme</a>
+          <a class="knopf rand" href="https://glossmaster.de/partner/">Betriebe ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lichtkante" aria-hidden="true"></div>
+
+  <!-- ================= Stimmen ================= -->
+  <section class="abschnitt" aria-labelledby="t-stimmen">
+    <div class="huelle">
+      <p class="eyebrow" id="t-stimmen">Kundenstimmen</p>
+      <div class="stimmen" style="margin-top:34px">
+        <figure class="stimme"><blockquote>„Marcello ist ein sehr freundlicher und transparenter Mensch, der sein Handwerk zu 100% versteht.“</blockquote><cite>Viajacko · 2-Tages-Schulung</cite></figure>
+        <div class="stimmen-rechts">
+          <figure class="stimme klein"><blockquote>„Ich hab mein Auto nicht mehr wiedererkannt.“</blockquote><cite>Darya Kovaleva · Aufbereitung</cite></figure>
+          <figure class="stimme klein"><blockquote>„Hab vor einem Jahr die Keramikversieglung machen lassen, heute die erste Nachbehandlung.“</blockquote><cite>marie mue · Keramikversiegelung</cite></figure>
+        </div>
+      </div>
+      <div class="partner"><span>Partner</span><b>Design911</b><b>Werk96</b><b>Dampfdrache</b><a class="pfeil" href="https://glossmaster.de/shop/">Pads und Produkte im Shop</a></div>
+    </div>
+  </section>
+
+  <!-- ================= Schluss ================= -->
+  <section class="abschnitt schluss" aria-labelledby="t-schluss">
+    <div class="huelle">
+      <div>
+        <p class="eyebrow" id="t-schluss">Termin im Studio Aalen</p>
+        <a class="nummer glanz" href="tel:+4915259304495">01525 9304495</a>
+        <div class="knoepfe">
+          <a class="knopf voll" href="https://wa.me/4915259304495">WhatsApp schreiben</a>
+          <a class="knopf rand" href="kontakt/">Anfrage senden</a>
+        </div>
+      </div>
+      <dl>
+        <div><dt>Studio</dt><dd>Carl-Zeiss-Straße 87<br />73431 Aalen</dd></div>
+        <div><dt>Termine</dt><dd>Nur nach Vereinbarung</dd></div>
+        <div><dt>E-Mail</dt><dd><a href="mailto:info@glossmaster.de">info@glossmaster.de</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <img src="../assets/bilder/logo.png" alt="GlossMaster" width="900" height="332" loading="lazy" />
+    <nav aria-label="Rechtliches und Social Media">
+      <a href="https://glossmaster.de/impressum/">Impressum</a>
+      <a href="https://glossmaster.de/datenschutzerklaerung/">Datenschutz</a>
+      <a href="https://glossmaster.de/our-terms/">AGB</a>
+      <a href="https://glossmaster.de/agbs-fuer-schulungen/">AGB Schulungen</a>
+      <a href="https://glossmaster.de/widerruf/">Widerruf</a>
+      <a href="https://www.instagram.com/glossmaster_official">Instagram</a>
+      <a href="https://www.facebook.com/glossmaster_official">Facebook</a>
+    </nav>
+    <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
+  </div>
+</footer>
+
+<div class="leiste" aria-label="Schnellkontakt">
+  <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
+  <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
+</div>
+</body>
+</html>

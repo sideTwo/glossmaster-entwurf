@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Kontakt – Studio Aalen | GlossMaster</title>
+<meta name="description" content="GlossMaster, Carl-Zeiss-Straße 87, 73431 Aalen. Termine nur nach Vereinbarung – per Telefon, WhatsApp oder Anfrageformular." />
+<!--
+  Entwurf A „Streiflicht“ – Kontakt.
+  Das Formular ist im Entwurf ohne Versand. In WordPress bleibt sein bestehendes Formular (Elementor, Versand per wp_mail) –
+  nie mailto: (Brain: Kontaktformular-Standard). Felder wie auf glossmaster.de/kontakt.
+-->
+<link rel="preload" href="../../assets/schrift/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="../stil.css" />
+<style>
+  .kontakt-raster { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 6vw, 110px); align-items: start; }
+  .wege { display: grid; gap: 12px; margin-top: 8px; }
+  .weg {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px;
+    background: var(--flaeche); border: 1px solid var(--linie); border-radius: 18px; padding: 22px 26px; text-decoration: none;
+    transition: border-color .2s ease;
+  }
+  .weg:hover { border-color: rgba(211,155,234,.5); }
+  .weg span { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gedimmt); }
+  .weg b { display: block; font-size: clamp(22px, 2vw, 30px); font-weight: 760; font-stretch: 112%; margin-top: 4px; }
+  .weg i { font-style: normal; font-size: 26px; color: var(--violett-hell); }
+  .weg.haupt-weg { background: linear-gradient(140deg, #2a1734, var(--flaeche) 65%); border-color: rgba(211,155,234,.4); }
+  .adresse { margin-top: 34px; border-top: 1px solid var(--linie); }
+  .adresse div { display: grid; grid-template-columns: 130px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--linie); }
+  .adresse dt { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gedimmt); padding-top: 3px; }
+  .adresse dd a { color: var(--violett-hell); }
+
+  .formular { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 24px; padding: clamp(26px, 3vw, 44px); }
+  .formular h2 { font-size: clamp(28px, 2.4vw, 40px); margin: 0 0 24px; }
+  .feld { display: grid; gap: 8px; margin-bottom: 18px; }
+  .feld label { font-size: 15px; font-weight: 650; }
+  .feld input, .feld select, .feld textarea {
+    font: inherit; font-size: 17px; color: var(--text); background: var(--grund);
+    border: 1px solid rgba(236,234,240,.22); border-radius: 12px; padding: 14px 16px; min-height: 52px; width: 100%;
+  }
+  .feld textarea { min-height: 150px; resize: vertical; }
+  .feld input:focus, .feld select:focus, .feld textarea:focus { outline: none; border-color: var(--violett-hell); box-shadow: 0 0 0 3px rgba(176,75,214,.25); }
+  .zwei { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .einwilligung { display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; font-size: 15px; color: var(--gedimmt); margin: 6px 0 24px; }
+  .einwilligung input { width: 22px; height: 22px; accent-color: var(--violett); margin-top: 2px; }
+  .einwilligung a { color: var(--text); }
+  .formular .knopf { width: 100%; border: 0; cursor: pointer; font-family: inherit; }
+  .hinweis { margin-top: 14px; font-size: 15px; color: var(--violett-hell); display: none; }
+  .hinweis.an { display: block; }
+
+  @media (max-width: 860px) { .kontakt-raster { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 560px) {
+    .zwei { grid-template-columns: minmax(0, 1fr); }
+    .adresse div { grid-template-columns: 1fr; gap: 4px; }
+    .weg { padding: 18px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="huelle">
+    <a class="logo" href="../" aria-label="GlossMaster – zur Startseite"><img src="../../assets/bilder/logo.png" alt="GlossMaster – Detailing, Carcare, Passion" width="900" height="332" /></a>
+    <nav class="haupt" aria-label="Hauptmenü">
+      <a href="../preisliste/">Aufbereitung</a>
+      <a href="../academy/">Academy</a>
+      <a href="https://glossmaster.de/shop/">Shop</a>
+      <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
+      <a href="../kontakt/" aria-current="page">Kontakt</a>
+    </nav>
+    <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
+  </div>
+  <nav class="menue-zeile" aria-label="Hauptmenü mobil">
+    <a href="../preisliste/">Aufbereitung</a>
+    <a href="../academy/">Academy</a>
+    <a href="https://glossmaster.de/shop/">Shop</a>
+    <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
+    <a href="../kontakt/" aria-current="page">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+  <section class="seitenkopf">
+    <div class="huelle">
+      <p class="eyebrow">Kontakt · Studio Aalen</p>
+      <h1>Kontakt beginnt <em class="glanz">hier.</em></h1>
+      <p class="lead">Fragen zur Aufbereitung, zur Academy oder zum GM Qualitätsbetrieb? Ruf an, schreib per WhatsApp oder schick eine Anfrage.</p>
+    </div>
+  </section>
+
+  <div class="lichtkante" aria-hidden="true"></div>
+
+  <section class="abschnitt eng" aria-label="Kontaktwege und Anfrage">
+    <div class="huelle kontakt-raster">
+      <div>
+        <div class="wege">
+          <a class="weg haupt-weg" href="tel:+4915259304495"><div><span>Telefon</span><b>01525 9304495</b></div><i aria-hidden="true">→</i></a>
+          <a class="weg" href="https://wa.me/4915259304495"><div><span>WhatsApp</span><b>Nachricht schreiben</b></div><i aria-hidden="true">→</i></a>
+          <a class="weg" href="mailto:info@glossmaster.de"><div><span>E-Mail</span><b>info@glossmaster.de</b></div><i aria-hidden="true">→</i></a>
+        </div>
+        <dl class="adresse">
+          <div><dt>Studio</dt><dd>GlossMaster<br />Carl-Zeiss-Straße 87<br />73431 Aalen<br /><a href="https://www.google.com/maps/search/?api=1&amp;query=Carl-Zeiss-Stra%C3%9Fe%2087%2C%2073431%20Aalen" rel="noopener">Route planen</a></dd></div>
+          <div><dt>Termine</dt><dd>Individuell nach Vereinbarung</dd></div>
+        </dl>
+      </div>
+
+      <form class="formular" id="anfrage" novalidate>
+        <h2>Anfrage senden</h2>
+        <div class="zwei">
+          <div class="feld"><label for="f-name">Name *</label><input id="f-name" name="name" autocomplete="name" required /></div>
+          <div class="feld"><label for="f-mail">E-Mail *</label><input id="f-mail" name="email" type="email" autocomplete="email" required /></div>
+        </div>
+        <div class="zwei">
+          <div class="feld">
+            <label for="f-anliegen">Anliegen *</label>
+            <select id="f-anliegen" name="anliegen" required>
+              <option value="">Bitte wählen …</option>
+              <option>Aufbereitung anfragen</option>
+              <option>Academy-Anmeldung</option>
+              <option>Shop-Support</option>
+              <option>Qualitätsbetrieb-Bewerbung</option>
+            </select>
+          </div>
+          <div class="feld"><label for="f-auto">Fahrzeug (Marke, Modell)</label><input id="f-auto" name="fahrzeug" /></div>
+        </div>
+        <div class="feld"><label for="f-text">Nachricht *</label><textarea id="f-text" name="nachricht" required></textarea></div>
+        <label class="einwilligung"><input type="checkbox" name="datenschutz" required /><span>Ich habe die <a href="https://glossmaster.de/datenschutzerklaerung/">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden. *</span></label>
+        <button class="knopf voll" type="submit">Anfrage senden</button>
+        <p class="hinweis" id="hinweis" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <img src="../../assets/bilder/logo.png" alt="GlossMaster" width="900" height="332" loading="lazy" />
+    <nav aria-label="Rechtliches und Social Media">
+      <a href="https://glossmaster.de/impressum/">Impressum</a>
+      <a href="https://glossmaster.de/datenschutzerklaerung/">Datenschutz</a>
+      <a href="https://glossmaster.de/our-terms/">AGB</a>
+      <a href="https://glossmaster.de/agbs-fuer-schulungen/">AGB Schulungen</a>
+      <a href="https://glossmaster.de/widerruf/">Widerruf</a>
+      <a href="https://www.instagram.com/glossmaster_official">Instagram</a>
+      <a href="https://www.facebook.com/glossmaster_official">Facebook</a>
+    </nav>
+    <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
+  </div>
+</footer>
+
+<div class="leiste" aria-label="Schnellkontakt">
+  <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
+  <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
+</div>
+
+<script>
+  // Entwurf: Pflichtfelder prüfen, aber nichts versenden (in WordPress übernimmt das bestehende Formular den Versand)
+  document.getElementById('anfrage').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var h = document.getElementById('hinweis');
+    var leer = [].filter.call(this.querySelectorAll('[required]'), function (f) { return f.type === 'checkbox' ? !f.checked : !f.value.trim(); });
+    h.classList.add('an');
+    if (leer.length) { h.textContent = 'Bitte alle Pflichtfelder ausfüllen.'; leer[0].focus(); return; }
+    h.textContent = 'Entwurf: Hier wird nichts versendet. In WordPress läuft der Versand über das bestehende Formular.';
+  });
+</script>
+</body>
+</html>

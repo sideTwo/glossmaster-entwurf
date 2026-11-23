@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Autoaufbereitung Schulung & Polierkurs in Aalen | GlossMaster Academy</title>
+<meta name="description" content="1:1-Schulungen im Studio Aalen: Polieren, Keramikversiegelung, Lederreparatur, Innenaufbereitung, Scheinwerfer und Business Coaching – mit Zertifikat." />
+<!-- Entwurf A „Streiflicht“ – Academy. Inhalte von glossmaster.de/glossmaster-academy und dem Shop (Stand 2026-11-23). -->
+<link rel="preload" href="../../assets/schrift/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="../stil.css" />
+<style>
+  .trainer { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(28px, 6vw, 110px); align-items: center; }
+  .trainer .bild { border-radius: 22px; aspect-ratio: 4 / 5; }
+  .trainer .bild img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+  .punkte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 36px; border-top: 1px solid var(--linie); padding-top: 26px; }
+  .punkte b { display: block; font-size: 20px; font-weight: 740; font-stretch: 112%; margin-bottom: 6px; }
+  .punkte p { font-size: 16px; color: var(--gedimmt); line-height: 1.5; }
+
+  .fehler-kopf { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 80px); align-items: end; margin-bottom: 48px; }
+  .fehler-kopf h2 { margin-bottom: 0; }
+  .fehler { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--linie); }
+  .fehler article { padding: 32px 28px 8px 0; }
+  .fehler article + article { padding-left: 28px; border-left: 1px solid var(--linie); }
+  .fehler .zahl { font-size: 56px; font-weight: 800; font-stretch: 125%; line-height: 1; color: transparent; -webkit-text-stroke: 1.5px var(--violett-hell); }
+  .fehler h3 { font-size: 22px; font-weight: 740; margin: 18px 0 10px; }
+  .fehler p { font-size: 16px; color: var(--gedimmt); line-height: 1.5; }
+  .ziel { margin-top: 40px; font-size: clamp(22px, 2vw, 30px); font-weight: 650; font-stretch: 112%; max-width: 34ch; }
+
+  .kurse { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .kurs { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 20px; padding: 30px 28px 28px; display: flex; flex-direction: column; gap: 16px; }
+  .kurs .dauer { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--violett-hell); }
+  .kurs h3 { font-size: clamp(24px, 1.9vw, 30px); font-weight: 760; }
+  .kurs .haken { font-size: 16px; gap: 8px; }
+  .kurs .fuss-zeile { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--linie); }
+  .kurs .preis { font-size: 28px; font-weight: 800; font-stretch: 112%; }
+  .kurs .knopf { min-height: 46px; padding: 0 18px; font-size: 15px; }
+  .kurs.gross { grid-column: span 2; background: linear-gradient(140deg, #2a1734, var(--flaeche) 60%); border-color: rgba(211,155,234,.4); }
+  .kurs.gross h3 { font-size: clamp(30px, 2.8vw, 44px); }
+  .kurs.breit { grid-column: span 2; }
+  .kurse-fuss { margin-top: 20px; font-size: 15px; color: var(--gedimmt); }
+
+  .ablauf-raster { display: grid; grid-template-columns: 1.2fr 1.8fr; gap: clamp(28px, 5vw, 80px); align-items: start; }
+  .ablauf-raster .schritte { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 40px; }
+  .zitat-gross { font-size: clamp(26px, 2.4vw, 40px); font-weight: 650; font-stretch: 112%; line-height: 1.2; }
+  .zitat-gross cite { display: block; margin-top: 16px; font-size: 15px; font-weight: 500; font-style: normal; font-stretch: 100%; color: var(--gedimmt); }
+
+  .bilderreihe { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 14px; margin-top: clamp(56px, 7vw, 100px); }
+  .bilderreihe figure { border-radius: 18px; height: clamp(320px, 30vw, 480px); }
+  .bilderreihe img { width: 100%; height: 100%; object-fit: cover; }
+  .bilderreihe figure:nth-child(2) { margin-top: 48px; }
+
+  .faq-raster { display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(28px, 5vw, 80px); }
+
+  @media (max-width: 1080px) {
+    .kurse { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .kurs.breit { grid-column: auto; }
+    .fehler { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .fehler article:nth-child(3) { padding-left: 0; border-left: none; }
+  }
+  @media (max-width: 860px) {
+    .trainer, .fehler-kopf, .ablauf-raster, .faq-raster { grid-template-columns: minmax(0, 1fr); }
+    .punkte { grid-template-columns: minmax(0, 1fr); }
+    .bilderreihe { grid-template-columns: 1fr 1fr; }
+    .bilderreihe figure:nth-child(2) { margin-top: 0; }
+    .bilderreihe figure:first-child { grid-column: span 2; }
+    .bilderreihe figure { height: 280px; }
+  }
+  @media (max-width: 560px) {
+    .kurse, .fehler { grid-template-columns: minmax(0, 1fr); }
+    .kurs.gross { grid-column: auto; }
+    .fehler article, .fehler article + article { padding: 26px 0 8px; border-left: none; border-bottom: 1px solid var(--linie); }
+    .kurs .fuss-zeile { flex-wrap: wrap; }
+    .bilderreihe { grid-template-columns: minmax(0, 1fr); }
+    .bilderreihe figure:first-child { grid-column: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="huelle">
+    <a class="logo" href="../" aria-label="GlossMaster – zur Startseite"><img src="../../assets/bilder/logo.png" alt="GlossMaster – Detailing, Carcare, Passion" width="900" height="332" /></a>
+    <nav class="haupt" aria-label="Hauptmenü">
+      <a href="../preisliste/">Aufbereitung</a>
+      <a href="../academy/" aria-current="page">Academy</a>
+      <a href="https://glossmaster.de/shop/">Shop</a>
+      <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
+      <a href="../kontakt/">Kontakt</a>
+    </nav>
+    <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
+  </div>
+  <nav class="menue-zeile" aria-label="Hauptmenü mobil">
+    <a href="../preisliste/">Aufbereitung</a>
+    <a href="../academy/" aria-current="page">Academy</a>
+    <a href="https://glossmaster.de/shop/">Shop</a>
+    <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
+    <a href="../kontakt/">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+  <section class="seitenkopf mit-bild">
+    <figure class="bild"><img src="../../assets/bilder/schulung-polieren.jpg" alt="Teilnehmer poliert unter Anleitung von Marcello Marino" /></figure>
+    <div class="huelle">
+      <p class="eyebrow">GlossMaster Academy · Aalen</p>
+      <h1>Schulungen am echten <em>Lack.</em></h1>
+      <p class="lead">Alle Kurse sind 1:1 und auf deinen Wissensstand angepasst. Im Studio Aalen, mit Teilnahmezertifikat – für Einsteiger und für Profis.</p>
+      <div class="knoepfe" style="margin-top:30px">
+        <a class="knopf voll" href="#kurse">Kurse ansehen</a>
+        <a class="knopf rand" href="https://wa.me/4915259304495?text=Hallo%20Marcello%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Schulung.">Termin per WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" aria-labelledby="t-trainer">
+    <div class="huelle trainer">
+      <figure class="bild streif"><img src="../../assets/bilder/qualitaetsbetrieb.jpg" alt="Marcello Marino im Studio Aalen" loading="lazy" /></figure>
+      <div>
+        <p class="eyebrow">Dein Trainer</p>
+        <h2 id="t-trainer">Lerne direkt vom <em>Profi.</em></h2>
+        <p class="lead">Hinter der GlossMaster Academy steht Marcello Marino. Mit über 5 Jahren Erfahrung in der High-End-Fahrzeugpflege und viel Praxis in der Lackkorrektur zeigt er dir in 1:1-Schulungen direkt und verständlich, wie es geht.</p>
+        <div class="punkte">
+          <div><b>5+ Jahre</b><p>Hands-on-Erfahrung und technisches Verständnis.</p></div>
+          <div><b>Lackkorrektur</b><p>Praxisnahe Techniken direkt am Fahrzeug.</p></div>
+          <div><b>1:1-Fokus</b><p>Dein Lernfortschritt steht im Mittelpunkt.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="t-fehler">
+    <div class="huelle">
+      <div class="fehler-kopf">
+        <div>
+          <p class="eyebrow">Typische Fehler</p>
+          <h2 id="t-fehler">Warum YouTube nicht <em>reicht.</em></h2>
+        </div>
+        <p class="lead">Theorie ist gut, aber Lack verzeiht keine Fehler. Wer nur zuschaut, spürt den Widerstand der Maschine nicht und erkennt Defekte erst, wenn es zu spät ist.</p>
+      </div>
+      <div class="fehler">
+        <article><span class="zahl">01</span><h3>Hologramme &amp; Lackstress</h3><p>Zu viel Druck oder falsche Führung hinterlassen Spuren, die erst im Sonnenlicht sichtbar werden.</p></article>
+        <article><span class="zahl">02</span><h3>Falsches System</h3><p>Kaum Abtrag oder ein trübes Finish durch Pads und Politur, die nicht zusammenpassen.</p></article>
+        <article><span class="zahl">03</span><h3>Schlechte Vorbereitung</h3><p>Kratzer bleiben oder kommen durch falsche Reinigungsschritte während der Korrektur zurück.</p></article>
+        <article><span class="zahl">04</span><h3>Zeitverlust &amp; Frust</h3><p>Ohne Plan bei Defekten polierst du stundenlang ohne echtes Ergebnis.</p></article>
+      </div>
+      <p class="ziel">Ziel: Du gehst raus und weißt genau, was du tust – <span class="glanz">ohne Rätselraten.</span></p>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="kurse" aria-labelledby="t-kurse">
+    <div class="huelle">
+      <p class="eyebrow">Alle Kurse</p>
+      <h2 id="t-kurse" style="margin-bottom:40px">Sieben Kurse. Alle <em>1:1.</em></h2>
+      <div class="kurse">
+        <article class="kurs gross">
+          <span class="dauer">2 Tage · Intensiv-Training</span>
+          <h3>Komplettaufbereitung</h3>
+          <ul class="haken"><li>Innen und außen</li><li>Der ganze Ablauf an einem Fahrzeug</li><li>Vom Waschen bis zum Finish</li></ul>
+          <div class="fuss-zeile"><span class="preis">890 €</span><a class="knopf voll" href="https://glossmaster.de/product-category/glossmaster-academy/">Kurs buchen</a></div>
+        </article>
+        <article class="kurs">
+          <span class="dauer">ca. 4–6 Std.</span>
+          <h3>Polierschulung</h3>
+          <ul class="haken"><li>Lackanalyse und Anschliff</li><li>Pad- und Politurwahl</li><li>Hochglanzfinish</li></ul>
+          <div class="fuss-zeile"><span class="preis">379 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
+        </article>
+        <article class="kurs">
+          <span class="dauer">ca. 4–6 Std.</span>
+          <h3>Keramik&shy;versiegelung</h3>
+          <ul class="haken"><li>Chemische Vorbereitung</li><li>Auftrag und Leveln</li><li>Pflege für Langzeitschutz</li></ul>
+          <div class="fuss-zeile"><span class="preis">419 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
+        </article>
+        <article class="kurs">
+          <span class="dauer">ca. 4–6 Std.</span>
+          <h3>Lederreparatur</h3>
+          <ul class="haken"><li>Sitze reparieren</li><li>Farbe angleichen</li><li>Originaloptik zurückholen</li></ul>
+          <div class="fuss-zeile"><span class="preis">429 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
+        </article>
+        <article class="kurs">
+          <span class="dauer">ca. 4–6 Std.</span>
+          <h3>Innen&shy;aufbereitung</h3>
+          <ul class="haken"><li>Leder und Stoff pflegen</li><li>Flecken entfernen</li><li>Kunststoff pflegen</li></ul>
+          <div class="fuss-zeile"><span class="preis">459 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
+        </article>
+        <article class="kurs">
+          <span class="dauer">1:1-Kurs</span>
+          <h3>Scheinwerfer</h3>
+          <ul class="haken"><li>Vorbereiten und abkleben</li><li>Mehrstufig schleifen</li><li>Polieren bis zur klaren Sicht</li></ul>
+          <div class="fuss-zeile"><span class="preis">459 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
+        </article>
+        <article class="kurs breit">
+          <span class="dauer">Persönliches Coaching</span>
+          <h3>Business Coaching</h3>
+          <ul class="haken"><li>Positionierung und Marketing</li><li>Content für Social Media</li><li>Preise und Kundengewinnung</li></ul>
+          <div class="fuss-zeile"><span class="preis">999 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
+        </article>
+      </div>
+      <p class="kurse-fuss">Preise inkl. MwSt. Gebucht wird im Shop, den Termin stimmen wir danach mit dir ab.</p>
+    </div>
+  </section>
+
+  <section class="abschnitt hell" aria-labelledby="t-ablauf">
+    <div class="huelle">
+      <div class="ablauf-raster">
+        <div>
+          <p class="eyebrow">So läuft der Kurs</p>
+          <h2 id="t-ablauf">Vier Schritte am <em>Fahrzeug.</em></h2>
+          <blockquote class="zitat-gross" style="margin-top:36px">„Du arbeitest selbst – ich greife ein, bevor du dir den Lack kaputt machst.“<cite>Marcello Marino</cite></blockquote>
+        </div>
+        <div class="schritte" style="margin-top:12px">
+          <div class="schritt"><span class="nr">SCHRITT 1</span><h3>Zustand einschätzen</h3><p>Lackdefekte unter professioneller Lichttechnik erkennen.</p></div>
+          <div class="schritt"><span class="nr">SCHRITT 2</span><h3>Vorbereitung</h3><p>Richtig waschen, kneten und empfindliche Teile abkleben.</p></div>
+          <div class="schritt"><span class="nr">SCHRITT 3</span><h3>Maschinen&shy;technik</h3><p>Exzenter und Rotation, Pads und Druck sicher führen.</p></div>
+          <div class="schritt"><span class="nr">SCHRITT 4</span><h3>Cut &amp; Finish</h3><p>Defekte korrigieren, Hochglanz ohne Fehlerbilder.</p></div>
+        </div>
+      </div>
+      <div class="bilderreihe">
+        <figure class="streif"><img src="../../assets/bilder/zertifikat-studio.jpg" alt="Kursabschluss mit Zertifikat im Studio unter dem Wabenlicht" loading="lazy" /></figure>
+        <figure><img src="../../assets/bilder/academy-zertifikat.jpg" alt="Teilnehmer mit GlossMaster-Academy-Zertifikat" loading="lazy" /></figure>
+        <figure><img src="../../assets/bilder/leder-vorher-nachher.jpg" alt="Ledersitz vor und nach der Reparatur" loading="lazy" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt" id="fragen" aria-labelledby="t-faq">
+    <div class="huelle faq-raster">
+      <div>
+        <p class="eyebrow">Häufige Fragen</p>
+        <h2 id="t-faq">Bevor du <em>buchst.</em></h2>
+      </div>
+      <div class="faq">
+        <details open><summary>Ist die Schulung auch für Anfänger geeignet?</summary><p>Ja. Wir starten mit Lackanalyse und System und gehen dann direkt in die Praxis. Du bekommst ein klares Vorgehen, ohne Überforderung.</p></details>
+        <details><summary>Lohnt sich der Kurs auch für erfahrene Aufbereiter?</summary><p>Ja. Der Fokus liegt auf Effizienz, sauberem Finish, dem Vermeiden von Fehlerbildern wie Hologrammen und Schleiern und besseren Entscheidungen bei Pad und Politur.</p></details>
+        <details><summary>Gibt es feste Termine?</summary><p>Nein. Termine werden individuell abgestimmt, damit du die volle Aufmerksamkeit hast.</p></details>
+        <details><summary>Bekomme ich ein Zertifikat?</summary><p>Ja. Nach erfolgreicher Teilnahme bekommst du ein persönliches GlossMaster-Academy-Zertifikat, das deine Teilnahme bestätigt.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt schluss" aria-labelledby="t-schluss">
+    <div class="huelle">
+      <div>
+        <p class="eyebrow" id="t-schluss">Kurs anfragen</p>
+        <a class="nummer glanz" href="tel:+4915259304495">01525 9304495</a>
+        <div class="knoepfe">
+          <a class="knopf voll" href="https://wa.me/4915259304495?text=Hallo%20Marcello%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Schulung.">WhatsApp schreiben</a>
+          <a class="knopf rand" href="../kontakt/">Anfrage senden</a>
+        </div>
+      </div>
+      <dl>
+        <div><dt>Studio</dt><dd>Carl-Zeiss-Straße 87<br />73431 Aalen</dd></div>
+        <div><dt>Termine</dt><dd>Individuell nach Absprache</dd></div>
+        <div><dt>E-Mail</dt><dd><a href="mailto:info@glossmaster.de">info@glossmaster.de</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <img src="../../assets/bilder/logo.png" alt="GlossMaster" width="900" height="332" loading="lazy" />
+    <nav aria-label="Rechtliches und Social Media">
+      <a href="https://glossmaster.de/impressum/">Impressum</a>
+      <a href="https://glossmaster.de/datenschutzerklaerung/">Datenschutz</a>
+      <a href="https://glossmaster.de/our-terms/">AGB</a>
+      <a href="https://glossmaster.de/agbs-fuer-schulungen/">AGB Schulungen</a>
+      <a href="https://glossmaster.de/widerruf/">Widerruf</a>
+      <a href="https://www.instagram.com/glossmaster_official">Instagram</a>
+      <a href="https://www.facebook.com/glossmaster_official">Facebook</a>
+    </nav>
+    <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
+  </div>
+</footer>
+
+<div class="leiste" aria-label="Schnellkontakt">
+  <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
+  <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
+</div>
+</body>
+</html>

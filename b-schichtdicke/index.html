@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Autoaufbereitung & Schulungen in Aalen | GlossMaster</title>
+<meta name="description" content="Lackkorrektur, Keramikversiegelung und Innenaufbereitung im Studio Aalen – und 1:1-Schulungen der GlossMaster Academy mit Zertifikat." />
+<!--
+  Entwurf B „Schichtdicke“ für GlossMaster (sideTwo, 2026-11-23)
+  Leitidee: Lack ist in Mikrometern aufgebaut – Polieren heißt Mikrometer abtragen, Keramik legt eine Schicht darüber.
+  µm-Werte sind typische Werte für Serienlack (ca.), keine Messung an einem Kundenfahrzeug.
+  Hero: Platzhalter-Foto Porsche 992 aus seinem Studio. Die Animation am Porsche 996 kommt nach dem Termin am 25.11.
+  Alle Inhalte, Preise und Stimmen stammen von glossmaster.de (Stand 2026-11-23).
+-->
+<link rel="preload" href="../assets/schrift/instrument-serif-400.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../assets/schrift/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+  @font-face { font-family: "Instrument Serif"; src: url("../assets/schrift/instrument-serif-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+  @font-face { font-family: "Instrument Serif"; src: url("../assets/schrift/instrument-serif-400-italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+  @font-face { font-family: "Instrument Sans"; src: url("../assets/schrift/instrument-sans-latin.woff2") format("woff2"); font-weight: 400 700; font-display: swap; }
+
+  :root {
+    --kalk:    #eeedf1;
+    --kalk-2:  #e3e1e8;
+    --papier:  #f6f5f8;
+    --nacht:   #141a30;
+    --nacht-2: #1f2742;
+    --text:    #141a30;
+    --gedimmt: #545a70;
+    --violett: #8a1fa8;
+    --violett-hell: #d7a8ea;
+    --linie:   rgba(20, 26, 48, .16);
+    --rand:    clamp(20px, 5vw, 72px);
+    --breite:  1480px;
+    --serif: "Instrument Serif", Georgia, serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Instrument Sans", Arial, sans-serif;
+    font-size: 18px; line-height: 1.6;
+    color: var(--text); background: var(--kalk);
+    overflow-x: clip; -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .huelle { max-width: var(--breite); margin: 0 auto; padding: 0 var(--rand); }
+
+  h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; line-height: 1.02; }
+  h1 em, h2 em, h3 em { font-style: italic; color: var(--violett); }
+  h2 { font-size: clamp(40px, 5.4vw, 76px); margin: 14px 0 22px; }
+  .lead { font-size: 20px; color: var(--gedimmt); max-width: 620px; }
+
+  /* Ordnungssystem: Messwert-Eyebrow */
+  .mess {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gedimmt);
+    font-variant-numeric: tabular-nums;
+  }
+  /* Messwerte nie in Großbuchstaben: aus „µm“ würde „ΜM“ */
+  .mess b { color: var(--violett); font-weight: 700; text-transform: none; letter-spacing: .04em; }
+  .mess::before { content: ""; width: 34px; height: 9px; background:
+      linear-gradient(90deg, currentColor 1px, transparent 1px) 0 0 / 6px 100%; opacity: .55; }
+
+  .knopf {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 54px; padding: 0 26px; border-radius: 6px;
+    font-weight: 650; font-size: 17px; text-decoration: none; white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .knopf.voll { background: var(--violett); color: #fff; }
+  .knopf.voll:hover { background: #73168d; }
+  .knopf.rand { border: 1.5px solid var(--text); }
+  .knopf.rand:hover { background: var(--text); color: var(--kalk); }
+  .pfeil { font-weight: 650; text-decoration: none; color: var(--violett); border-bottom: 1.5px solid currentColor; padding-bottom: 2px; }
+
+  /* ---------- Kopf (Nachtblau, damit das Logo wirkt) ---------- */
+  .kopf { background: var(--nacht); color: #eef0f6; position: sticky; top: 0; z-index: 20; }
+  .kopf .huelle { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 74px; }
+  .kopf .logo img { height: 56px; width: auto; }
+  .kopf nav { display: flex; gap: 30px; }
+  .kopf nav a { text-decoration: none; font-size: 16px; font-weight: 550; opacity: .78; padding: 12px 0; }
+  .kopf nav a:hover { opacity: 1; }
+  .kopf .knopf { min-height: 44px; padding: 0 18px; font-size: 15px; }
+
+  /* ---------- Hero ---------- */
+  /* ---------- Hero: Foto bis an den Rand, daneben der Lackaufbau als Streifen ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: min(calc(100vh - 74px), 980px); min-height: min(calc(100svh - 74px), 980px);
+    display: flex; align-items: center;
+  }
+  .hero-inhalt { width: 100%; padding-top: clamp(48px, 7vh, 96px); padding-bottom: clamp(48px, 7vh, 96px); }
+  .hero-text { max-width: min(50vw, 860px); }
+  .hero h1 { font-size: clamp(46px, 5.6vw, 116px); margin: 20px 0 28px; hyphens: manual; }
+  .hero .lead { margin-bottom: 34px; font-size: clamp(19px, 1.25vw, 22px); }
+  .hero .knoepfe { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .hero .knoepfe .pfeil { margin-left: 10px; }
+  .hero-zahlen { display: flex; gap: 48px; margin-top: clamp(40px, 6vh, 72px); padding-top: 22px; border-top: 2px solid var(--text); max-width: 640px; }
+  .hero-zahlen div { font-size: 15px; color: var(--gedimmt); line-height: 1.4; }
+  .hero-zahlen b { display: block; font-family: var(--serif); font-weight: 400; font-size: 44px; line-height: 1; color: var(--text); margin-bottom: 6px; }
+  .hero-foto { position: absolute; top: 0; right: 0; bottom: 0; width: 42vw; margin: 0; }
+  .hero-foto img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .streifen { position: absolute; left: -22px; top: 0; bottom: 0; width: 22px; display: flex; flex-direction: column; }
+  .streifen i { display: block; }
+  .streifen i:nth-child(1) { flex: 2;  background: #b77fd0; }
+  .streifen i:nth-child(2) { flex: 36; background: linear-gradient(180deg, #9fb2d8, #7d93c4); }
+  .streifen i:nth-child(3) { flex: 14; background: #1d2f6b; }
+  .streifen i:nth-child(4) { flex: 26; background: #6d6f78; }
+  .streifen i:nth-child(5) { flex: 16; background: #3b3d45; }
+  .streifen i:nth-child(6) { flex: 6;  background: repeating-linear-gradient(90deg, #8d9098 0 2px, #9da0a8 2px 5px); }
+  .hero-foto figcaption {
+    position: absolute; left: 24px; bottom: 22px; right: 24px; display: flex; justify-content: space-between;
+    font-size: 14px; font-weight: 600; color: rgba(255,255,255,.85); text-shadow: 0 1px 8px rgba(0,0,0,.5);
+  }
+
+  /* ---------- Querschnitt (Signature) ---------- */
+  .schnitt { background: var(--papier); border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); padding: clamp(64px, 8vw, 120px) 0; }
+  .schnitt-raster { display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(28px, 5vw, 80px); align-items: center; }
+  .schichten { list-style: none; border-left: 2px solid var(--text); }
+  .schichten li {
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px;
+    padding: 0 18px; border-bottom: 1px solid rgba(255,255,255,.35); color: #fff; position: relative;
+    min-height: 44px;
+  }
+  .schichten li span { font-size: 16px; font-weight: 600; }
+  .schichten li em { font-style: normal; font-size: 14px; font-variant-numeric: tabular-nums; opacity: .85; }
+  .schichten .keramik { height: 44px; background: repeating-linear-gradient(135deg, #b77fd0 0 8px, #a86cc4 8px 16px); }
+  .schichten .klar    { height: 112px; background: linear-gradient(180deg, #9fb2d8, #7d93c4); }
+  .schichten .basis   { height: 56px; background: #1d2f6b; }
+  .schichten .fueller { height: 84px; background: #6d6f78; }
+  .schichten .ktl     { height: 56px; background: #3b3d45; }
+  .schichten .blech   { height: 44px; background: repeating-linear-gradient(90deg, #8d9098 0 2px, #9da0a8 2px 5px); color: var(--text); }
+  .schichten .klar::after { /* Abtrag beim Polieren */
+    content: "Politur trägt hier ca. 1–3 µm ab"; position: absolute; left: 18px; right: 18px; top: 0; height: 22px;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,.75) 0 6px, transparent 6px 10px);
+    background-size: 100% 2px; background-repeat: no-repeat; background-position: 0 100%;
+    font-size: 13px; font-weight: 700; letter-spacing: .02em; color: #fff;
+    display: flex; align-items: flex-start; padding-top: 2px;
+  }
+  .schichten .klar span { margin-top: 26px; }
+  .schnitt-fuss { margin-top: 16px; font-size: 14px; color: var(--gedimmt); }
+
+  /* ---------- Leistungen ---------- */
+  .abschnitt { padding: clamp(80px, 10vw, 140px) 0; }
+  .leist-kopf { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; }
+  .karten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 52px; border-top: 2px solid var(--text); }
+  .karte { padding: 28px 28px 32px 0; border-bottom: 1px solid var(--linie); display: flex; flex-direction: column; gap: 12px; }
+  .karte:not(:nth-child(3n+1)) { padding-left: 28px; border-left: 1px solid var(--linie); }
+  .karte h3 { font-size: 34px; }
+  .karte p { font-size: 16px; color: var(--gedimmt); line-height: 1.5; }
+  .karte .preis { margin-top: auto; font-size: 24px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .karte .preis small { font-size: 15px; font-weight: 500; color: var(--gedimmt); margin-right: 4px; }
+  /* Mini-Schichtbalken: was die Leistung mit dem Lack macht */
+  .wirkung { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: .02em; color: var(--gedimmt); font-variant-numeric: tabular-nums; }
+  .wirkung i { display: block; width: 54px; height: 16px; border: 1px solid var(--linie); border-radius: 2px; position: relative; overflow: hidden; background: #9fb2d8; }
+  .wirkung i::before { content: ""; position: absolute; left: 0; right: 0; top: 0; }
+  .wirkung.ab i::before { height: 5px; background: repeating-linear-gradient(90deg, #fff 0 3px, transparent 3px 6px); }
+  .wirkung.auf i::before { height: 5px; background: #b77fd0; }
+  .wirkung.null i::before { height: 0; }
+  .wirkung.innen i { background: var(--kalk-2); }
+  .leist-fuss { margin-top: 26px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 15px; color: var(--gedimmt); }
+
+  .vergleich { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(28px, 5vw, 72px); align-items: center; margin-top: 96px; }
+  .vergleich img { width: 100%; border-radius: 4px; }
+  .vergleich figcaption { margin-top: 12px; font-size: 14px; color: var(--gedimmt); }
+  .vergleich h3 { font-size: clamp(34px, 3.6vw, 52px); margin: 12px 0 16px; }
+
+  /* ---------- Academy (dunkel, versetzte Schichten) ---------- */
+  .academy { background: var(--nacht); color: #eef0f6; position: relative; overflow: hidden; }
+  .academy .lead, .academy .mess { color: #b5bad0; }
+  .academy .mess b { color: var(--violett-hell); }
+  .academy h2 em { color: var(--violett-hell); }
+  .aca-raster { display: grid; grid-template-columns: 1fr 1.25fr; gap: clamp(28px, 6vw, 96px); align-items: start; }
+  .zitat { font-family: var(--serif); font-size: clamp(28px, 2.8vw, 40px); line-height: 1.15; margin-top: 40px; }
+  .zitat cite { display: block; margin-top: 14px; font-family: "Instrument Sans", sans-serif; font-style: normal; font-size: 15px; color: #b5bad0; }
+  .tabelle { width: 100%; border-collapse: collapse; }
+  .tabelle tr { border-bottom: 1px solid rgba(238,240,246,.16); }
+  .tabelle tr:first-child { border-top: 2px solid #eef0f6; }
+  .tabelle td { padding: 20px 0; vertical-align: baseline; }
+  .tabelle .name { font-family: var(--serif); font-size: 30px; line-height: 1.1; padding-right: 16px; }
+  .tabelle .name small { display: block; font-family: "Instrument Sans", sans-serif; font-size: 15px; color: #b5bad0; margin-top: 6px; line-height: 1.45; }
+  .tabelle .dauer { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: #b5bad0; white-space: nowrap; padding-right: 20px; }
+  .tabelle .preis { text-align: right; font-size: 22px; font-weight: 650; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .tabelle tr.hl .name { color: var(--violett-hell); }
+  .tabelle a { text-decoration: none; }
+  .aca-fuss { margin-top: 20px; font-size: 15px; color: #b5bad0; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .aca-fuss .pfeil { color: var(--violett-hell); }
+
+  .stapel { position: relative; margin-top: 90px; display: grid; grid-template-columns: repeat(12, 1fr); }
+  .stapel figure { position: relative; grid-row: 1; }
+  .stapel figure:nth-child(1) { grid-column: 1 / 6; z-index: 2; }
+  .stapel figure:nth-child(2) { grid-column: 5 / 9; margin-top: 90px; z-index: 3; }
+  .stapel figure:nth-child(3) { grid-column: 8 / 13; margin-top: 20px; z-index: 1; }
+  .stapel img { width: 100%; height: 440px; object-fit: cover; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,.35); }
+  .stapel figcaption { margin-top: 10px; font-size: 14px; color: #b5bad0; }
+
+  .zeitachse { list-style: none; margin-top: 96px; display: grid; grid-template-columns: repeat(4, 1fr); counter-reset: s; }
+  .zeitachse li { padding: 0 24px 0 0; position: relative; }
+  .zeitachse li::before {
+    counter-increment: s; content: counter(s, decimal-leading-zero);
+    display: block; font-family: var(--serif); font-size: 56px; line-height: 1; color: var(--violett-hell); margin-bottom: 14px;
+  }
+  .zeitachse li::after { content: ""; position: absolute; top: 28px; left: 76px; right: 12px; height: 1px; background: rgba(238,240,246,.2); }
+  .zeitachse li:last-child::after { display: none; }
+  .zeitachse h3 { font-family: "Instrument Sans", sans-serif; font-size: 20px; font-weight: 650; margin-bottom: 6px; }
+  .zeitachse p { font-size: 16px; color: #b5bad0; line-height: 1.5; }
+
+  /* ---------- Qualitätsbetrieb ---------- */
+  .siegel-raster { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 6vw, 96px); align-items: center; }
+  .siegel img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+  .siegel dl { margin: 28px 0 32px; border-top: 1px solid var(--linie); }
+  .siegel dl div { display: grid; grid-template-columns: 200px 1fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--linie); }
+  .siegel dt { font-weight: 650; }
+  .siegel dd { color: var(--gedimmt); }
+  .siegel .knoepfe { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* ---------- Stimmen ---------- */
+  .stimmen { background: var(--papier); border-top: 1px solid var(--linie); }
+  .stimmen-raster { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px 64px; margin-top: 36px; }
+  .stimme blockquote { font-family: var(--serif); font-size: clamp(28px, 3vw, 44px); line-height: 1.15; }
+  .stimme.klein blockquote { font-size: 26px; }
+  .stimme cite { display: block; margin-top: 14px; font-style: normal; font-size: 15px; color: var(--gedimmt); }
+  .stimmen-rechts { display: grid; gap: 36px; }
+
+  /* ---------- Shop / Kontakt ---------- */
+  .kontakt-raster { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 6vw, 96px); align-items: start; }
+  .kontakt h2 { font-size: clamp(44px, 6vw, 92px); }
+  .kontakt .knoepfe { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+  .karte-kontakt { background: var(--papier); border: 1px solid var(--linie); border-radius: 4px; padding: 32px; }
+  .karte-kontakt dl div { display: grid; grid-template-columns: 110px 1fr; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--linie); }
+  .karte-kontakt dl div:last-child { border-bottom: none; }
+  .karte-kontakt dt { font-size: 14px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; color: var(--gedimmt); padding-top: 3px; }
+  .karte-kontakt dd { font-size: 19px; }
+  .karte-kontakt dd a { text-decoration: none; border-bottom: 1px solid var(--linie); }
+  .shopzeile { margin-top: 28px; padding-top: 24px; border-top: 2px solid var(--text); display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .shopzeile p { font-family: var(--serif); font-size: 28px; line-height: 1.15; }
+  .partnerzeile { margin-top: 14px; font-size: 15px; color: var(--gedimmt); }
+
+  /* ---------- Fuß ---------- */
+  .fuss { background: var(--nacht); color: #b5bad0; padding: 44px 0 40px; font-size: 15px; }
+  .fuss .huelle { display: grid; grid-template-columns: auto 1fr auto; gap: 32px; align-items: center; }
+  .fuss img { height: 34px; width: auto; }
+  .fuss nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  .fuss a { text-decoration: none; }
+  .fuss a:hover { color: #fff; }
+  .fuss .von a { color: #fff; border-bottom: 1px solid rgba(255,255,255,.3); }
+
+  /* ---------- Messskala am Rand (Signature, nur Desktop) ---------- */
+  .skala {
+    position: fixed; right: 18px; top: 50%; transform: translateY(-50%); z-index: 15;
+    width: 64px; height: 300px; display: none;
+    opacity: 0; transition: opacity .3s ease;
+  }
+  .skala.an { opacity: 1; }
+  .skala .bahn { position: absolute; right: 0; top: 0; bottom: 0; width: 12px;
+    background: linear-gradient(180deg, currentColor 1px, transparent 1px) 0 0 / 100% 10px; color: rgba(20,26,48,.35); }
+  .skala .bahn::after { content: ""; position: absolute; right: 0; top: 0; bottom: 0; width: 1px; background: rgba(20,26,48,.35); }
+  .skala .zeiger { position: absolute; right: 0; top: 0; display: flex; align-items: center; gap: 6px; transform: translateY(-50%);
+    font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--violett); white-space: nowrap; }
+  .skala .zeiger::after { content: ""; width: 20px; height: 2px; background: var(--violett); }
+  .skala.dunkel .bahn { color: rgba(238,240,246,.4); }
+  .skala.dunkel .bahn::after { background: rgba(238,240,246,.4); }
+  .skala.dunkel .zeiger { color: var(--violett-hell); }
+  .skala.dunkel .zeiger::after { background: var(--violett-hell); }
+  @media (min-width: 1180px) { .skala { display: block; } }
+
+  .leiste { display: none; }
+
+  /* ---------- Breakpoints ---------- */
+  @media (max-width: 1000px) {
+    .karten { grid-template-columns: repeat(2, 1fr); }
+    .karte, .karte:not(:nth-child(3n+1)) { padding: 26px 22px 28px 0; border-left: none; }
+    .karte:nth-child(2n) { padding-left: 22px; border-left: 1px solid var(--linie); }
+    .zeitachse { grid-template-columns: repeat(2, 1fr); row-gap: 36px; }
+  }
+  @media (max-width: 860px) {
+    body { font-size: 17px; padding-bottom: 76px; }
+    .kopf nav { display: none; }
+    .schnitt-raster, .leist-kopf, .vergleich, .aca-raster, .siegel-raster, .stimmen-raster, .kontakt-raster { grid-template-columns: 1fr; }
+    .hero { display: flex; flex-direction: column-reverse; min-height: 0; }
+    .hero-foto { position: relative; width: auto; height: 50vh; min-height: 300px; max-height: 480px; margin: 28px 0 0 22px; }
+    .hero-text { max-width: none; }
+    .hero-inhalt { padding-top: 36px; padding-bottom: 8px; }
+    .hero-zahlen { gap: 22px; flex-wrap: wrap; }
+    .hero-zahlen b { font-size: 34px; }
+    .stapel { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stapel figure:nth-child(n) { grid-column: auto; grid-row: auto; margin-top: 0; }
+    .stapel figure:nth-child(3) { grid-column: span 2; }
+    .stapel img { height: 300px; }
+    .siegel dl div { grid-template-columns: 1fr; gap: 2px; }
+    .fuss .huelle { grid-template-columns: 1fr; }
+    .leiste {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+      padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(238,237,241,.96);
+      backdrop-filter: blur(10px); border-top: 1px solid var(--linie);
+    }
+    .leiste .knopf { min-height: 52px; padding: 0 12px; }
+  }
+  @media (max-width: 560px) {
+    .kopf .knopf { display: none; }
+    .karten { grid-template-columns: 1fr; }
+    .karte:nth-child(n) { padding: 24px 0 26px; border-left: none; }
+    .zeitachse { grid-template-columns: 1fr; }
+    .zeitachse li::after { display: none; }
+    .tabelle .dauer { display: none; }
+    .tabelle .name { font-size: 26px; }
+    .stapel { grid-template-columns: 1fr; }
+    .stapel figure:nth-child(3) { grid-column: auto; }
+    .hero .knoepfe .knopf { width: 100%; }
+    .hero .knoepfe .pfeil { margin: 8px 0 0; }
+    .karte-kontakt { padding: 22px; }
+    .karte-kontakt dl div { grid-template-columns: 1fr; gap: 2px; }
+    .schichten li span { font-size: 15px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="kopf">
+  <div class="huelle">
+    <a class="logo" href="#top" aria-label="GlossMaster – zur Startseite"><img src="../assets/bilder/logo.png" alt="GlossMaster – Detailing, Carcare, Passion" width="900" height="332" /></a>
+    <nav aria-label="Hauptmenü">
+      <a href="#aufbereitung">Aufbereitung</a>
+      <a href="#academy">Academy</a>
+      <a href="https://glossmaster.de/shop/">Shop</a>
+      <a href="#qualitaetsbetrieb">Qualitätsbetrieb</a>
+    </nav>
+    <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
+  </div>
+</header>
+
+<div class="skala" id="skala" aria-hidden="true"><div class="bahn"></div><div class="zeiger" id="zeiger">0 µm</div></div>
+
+<main id="top">
+
+  <!-- ================= Hero ================= -->
+  <section class="hero">
+    <figure class="hero-foto">
+      <div class="streifen" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <!-- Platzhalter bis zur Animation am Porsche 996 (Aufnahmen am 25.11.) -->
+      <img src="../assets/bilder/porsche-studio.webp" alt="Porsche unter dem Wabenlicht im GlossMaster-Studio in Aalen" />
+      <figcaption><span>Studio Aalen</span><span>Wabenlicht</span></figcaption>
+    </figure>
+    <div class="huelle hero-inhalt">
+      <div class="hero-text">
+        <p class="mess"><b>0 µm</b> Oberfläche · Studio Aalen</p>
+        <h1>Autoauf&shy;bereitung &amp; Schulungen in&nbsp;<em>Aalen.</em></h1>
+        <p class="lead">Wir arbeiten im Mikrometer-Bereich: Kratzer auspolieren, ohne zu viel Lack zu nehmen, und eine Keramikschicht darüberlegen. Im eigenen Studio – und in 1:1-Kursen für alle, die es selbst lernen wollen.</p>
+        <div class="knoepfe">
+          <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
+          <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp schreiben</a>
+          <a class="pfeil" href="#academy">Zu den Kursen</a>
+        </div>
+        <div class="hero-zahlen">
+          <div><b>5+</b>Jahre Praxis</div>
+          <div><b>1:1</b>Jeder Kurs einzeln</div>
+          <div><b>ab 59 €</b>Feste Startpreise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Querschnitt ================= -->
+  <section class="schnitt" aria-labelledby="t-schnitt">
+    <div class="huelle schnitt-raster">
+      <div>
+        <p class="mess"><b>≈ 120 µm</b> Querschnitt</p>
+        <h2 id="t-schnitt">Dein Lack ist dünner als ein <em>Blatt Papier.</em></h2>
+        <p class="lead">Kratzer sitzen im Klarlack. Wer poliert, nimmt davon ein paar Mikrometer weg – genau so viel wie nötig, nie mehr. Darum messen und prüfen wir, bevor die Maschine läuft.</p>
+      </div>
+      <div>
+        <ul class="schichten" aria-label="Aufbau eines Autolacks mit typischen Schichtdicken">
+          <li class="keramik"><span>Keramikversiegelung</span><em>ca. 1–2 µm</em></li>
+          <li class="klar"><span>Klarlack</span><em>ca. 35–50 µm</em></li>
+          <li class="basis"><span>Basislack – die Farbe</span><em>ca. 15–20 µm</em></li>
+          <li class="fueller"><span>Füller</span><em>ca. 30–40 µm</em></li>
+          <li class="ktl"><span>Grundierung (KTL)</span><em>ca. 20 µm</em></li>
+          <li class="blech"><span>Blech</span><em></em></li>
+        </ul>
+        <p class="schnitt-fuss">Typische Werte bei Serienlack. Ein Blatt Papier ist rund 100 µm dick.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Leistungen ================= -->
+  <section class="abschnitt" id="aufbereitung" aria-labelledby="t-auf">
+    <div class="huelle">
+      <div class="leist-kopf">
+        <div>
+          <p class="mess"><b>01</b> Aufbereitung</p>
+          <h2 id="t-auf">Was wir mit deinem Lack <em>machen.</em></h2>
+        </div>
+        <p class="lead">Feste Startpreise für Fahrzeuge bis Golf-Größe. Größere auf Anfrage – der Endpreis hängt vom Zustand ab.</p>
+      </div>
+      <div class="karten">
+        <article class="karte">
+          <span class="wirkung null"><i></i>0 µm Abtrag</span>
+          <h3>Außenwäsche Premium</h3>
+          <p>Snow Foam, Zweieimertechnik, Felgen und Reifen, Trocknung mit Warmluft.</p>
+          <span class="preis"><small>ab</small>59 €</span>
+        </article>
+        <article class="karte">
+          <span class="wirkung ab"><i></i>ca. 1–3 µm Abtrag</span>
+          <h3>Polieren – <em>Brillanz</em></h3>
+          <p>Lackknete, 1–2-Step-Maschinenpolitur, Kontrolle mit Speziallicht. Unser Bestseller.</p>
+          <span class="preis"><small>ab</small>249 €</span>
+        </article>
+        <article class="karte">
+          <span class="wirkung auf"><i></i>+ Schutzschicht</span>
+          <h3>Keramik&shy;versiegelung</h3>
+          <p>Vorreinigung, 1–3-stufige Politur ohne Hologramme, Keramik-Auftrag.</p>
+          <span class="preis"><small>ab</small>799 €</span>
+        </article>
+        <article class="karte">
+          <span class="wirkung innen"><i></i>Innenraum</span>
+          <h3>Innenaufbereitung</h3>
+          <p>Saugen, Druckluft in alle Ecken, Kunststoffpflege, Finish mit Trockeneis.</p>
+          <span class="preis"><small>ab</small>99 €</span>
+        </article>
+        <article class="karte">
+          <span class="wirkung null"><i></i>0 µm Abtrag</span>
+          <h3>Trockeneis</h3>
+          <p>Motorraum, Radkästen und alles, wo Wasser nicht hinkommt.</p>
+          <span class="preis"><small>ab</small>100 €</span>
+        </article>
+        <article class="karte">
+          <span class="wirkung ab"><i></i>nach Messung</span>
+          <h3>Lackkorrektur</h3>
+          <p>Mehrstufig, nach Aufwand. Wir sehen uns den Lack an und sagen dir vorher, was machbar ist.</p>
+          <span class="preis">Angebot</span>
+        </article>
+      </div>
+      <div class="leist-fuss"><span>Preise laut aktueller Preisliste.</span><a class="pfeil" href="https://glossmaster.de/preisliste/">Komplette Preisliste</a></div>
+
+      <div class="vergleich">
+        <figure>
+          <img src="../assets/bilder/lack-vorher-nachher.jpg" alt="Dunkelblauer Lack vorher mit Kratzern und nachher poliert" loading="lazy" />
+          <figcaption>Vorher und nachher, Studio Aalen.</figcaption>
+        </figure>
+        <div>
+          <p class="mess"><b>− 2 µm</b> Lackkorrektur</p>
+          <h3>Die Kratzer sind weg. Der Lack <em>bleibt.</em></h3>
+          <p class="lead">Kratzer und Hologramme sieht man erst im Licht. Wir polieren sie aus und prüfen jeden Durchgang unter Speziallicht.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Academy ================= -->
+  <section class="abschnitt academy" id="academy" aria-labelledby="t-aca">
+    <div class="huelle">
+      <div class="aca-raster">
+        <div>
+          <p class="mess"><b>02</b> GlossMaster Academy</p>
+          <h2 id="t-aca">Lern, wie viel Lack weg darf. <em>1:1.</em></h2>
+          <p class="lead">Alle Kurse sind Einzelschulungen im Studio Aalen, am echten Lack, mit Teilnahmezertifikat. Den Termin stimmen wir mit dir ab.</p>
+          <blockquote class="zitat">„Du arbeitest selbst – ich greife ein, bevor du dir den Lack kaputt machst.“<cite>Marcello Marino, Trainer</cite></blockquote>
+        </div>
+        <div>
+          <table class="tabelle">
+            <tr class="hl"><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Komplettaufbereitung</a><small>Innen und außen, der ganze Ablauf an einem Fahrzeug.</small></td><td class="dauer">2 Tage</td><td class="preis">890 €</td></tr>
+            <tr><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Polierschulung</a><small>Lackanalyse, Anschliff, Pad- und Politurwahl.</small></td><td class="dauer">4–6 Std.</td><td class="preis">379 €</td></tr>
+            <tr><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Keramikversiegelung</a><small>Vorbereitung, Auftrag und Leveln, Pflege.</small></td><td class="dauer">4–6 Std.</td><td class="preis">419 €</td></tr>
+            <tr><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Lederreparatur</a><small>Sitze reparieren, Farbe angleichen.</small></td><td class="dauer">4–6 Std.</td><td class="preis">429 €</td></tr>
+            <tr><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Innenaufbereitung</a><small>Leder, Stoff, Flecken, Kunststoff.</small></td><td class="dauer">4–6 Std.</td><td class="preis">459 €</td></tr>
+            <tr><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Scheinwerfer</a><small>Abkleben, schleifen, polieren.</small></td><td class="dauer">1:1</td><td class="preis">459 €</td></tr>
+            <tr><td class="name"><a href="https://glossmaster.de/product-category/glossmaster-academy/">Business Coaching</a><small>Positionierung, Social Media, Preise, Kundengewinnung.</small></td><td class="dauer">Coaching</td><td class="preis">999 €</td></tr>
+          </table>
+          <div class="aca-fuss"><span>Preise inkl. MwSt. Buchung direkt im Shop.</span><a class="pfeil" href="https://glossmaster.de/glossmaster-academy/">Alles zur Academy</a></div>
+        </div>
+      </div>
+
+      <ol class="zeitachse">
+        <li><h3>Zustand einschätzen</h3><p>Lackdefekte unter professioneller Lichttechnik erkennen.</p></li>
+        <li><h3>Vorbereitung</h3><p>Richtig waschen, kneten und empfindliche Teile abkleben.</p></li>
+        <li><h3>Maschinentechnik</h3><p>Exzenter und Rotation, Pads und Druck sicher führen.</p></li>
+        <li><h3>Cut &amp; Finish</h3><p>Defekte korrigieren, Hochglanz ohne Fehlerbilder.</p></li>
+      </ol>
+
+      <div class="stapel">
+        <figure><img src="../assets/bilder/schulung-polieren.jpg" alt="Teilnehmer poliert unter Anleitung von Marcello Marino" loading="lazy" /><figcaption>Am echten Lack, mit Trainer daneben.</figcaption></figure>
+        <figure><img src="../assets/bilder/academy-zertifikat.jpg" alt="Teilnehmer mit GlossMaster-Academy-Zertifikat" loading="lazy" /><figcaption>Zertifikat nach dem Kurs.</figcaption></figure>
+        <figure><img src="../assets/bilder/zertifikat-studio.jpg" alt="Kursabschluss im Studio unter dem Wabenlicht" loading="lazy" /><figcaption>Studio Aalen.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Qualitätsbetrieb ================= -->
+  <section class="abschnitt siegel" id="qualitaetsbetrieb" aria-labelledby="t-siegel">
+    <div class="huelle siegel-raster">
+      <div>
+        <p class="mess"><b>03</b> GM Qualitätsbetrieb</p>
+        <h2 id="t-siegel">Ein Siegel, das man sich <em>verdient.</em></h2>
+        <p class="lead">Nicht jeder Betrieb wird aufgenommen. Wer das Siegel trägt, arbeitet nach dem GlossMaster-Standard.</p>
+        <dl>
+          <div><dt>Jährlich bestätigt</dt><dd>Qualität wird regelmäßig geprüft.</dd></div>
+          <div><dt>Sichtbar</dt><dd>Für Kunden im GlossMaster-Netzwerk.</dd></div>
+          <div><dt>Anfragen</dt><dd>Wir leiten sie an aufgenommene Betriebe weiter.</dd></div>
+        </dl>
+        <div class="knoepfe">
+          <a class="knopf voll" href="https://glossmaster.de/bewerbung/">Als Betrieb bewerben</a>
+          <a class="knopf rand" href="https://glossmaster.de/partner/">Qualitätsbetriebe ansehen</a>
+        </div>
+      </div>
+      <img src="../assets/bilder/qualitaetsbetrieb.jpg" alt="Marcello Marino mit dem Schild GM Qualitätsbetrieb 2026" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- ================= Stimmen ================= -->
+  <section class="abschnitt stimmen" aria-labelledby="t-stimmen">
+    <div class="huelle">
+      <p class="mess"><b>04</b> Kundenstimmen</p>
+      <h2 id="t-stimmen" style="margin-bottom:0">Was Kunden und Schüler <em>sagen.</em></h2>
+      <div class="stimmen-raster">
+        <figure class="stimme"><blockquote>„Marcello ist ein sehr freundlicher und transparenter Mensch, der sein Handwerk zu 100% versteht.“</blockquote><cite>Viajacko · 2-Tages-Schulung</cite></figure>
+        <div class="stimmen-rechts">
+          <figure class="stimme klein"><blockquote>„Ich hab mein Auto nicht mehr wiedererkannt.“</blockquote><cite>Darya Kovaleva · Aufbereitung</cite></figure>
+          <figure class="stimme klein"><blockquote>„Hab vor einem Jahr die Keramikversieglung machen lassen, heute die erste Nachbehandlung.“</blockquote><cite>marie mue · Keramikversiegelung</cite></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Kontakt + Shop ================= -->
+  <section class="abschnitt kontakt" id="kontakt" aria-labelledby="t-kontakt">
+    <div class="huelle kontakt-raster">
+      <div>
+        <p class="mess"><b>05</b> Kontakt</p>
+        <h2 id="t-kontakt">Termin im Studio <em>Aalen.</em></h2>
+        <p class="lead">Schreib uns Marke, Modell und was gemacht werden soll – am schnellsten per WhatsApp. Für Kurse einfach den Wunschkurs dazuschreiben.</p>
+        <div class="knoepfe">
+          <a class="knopf voll" href="tel:+4915259304495">01525 9304495 anrufen</a>
+          <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp schreiben</a>
+        </div>
+        <div class="shopzeile">
+          <p>Die Pads, mit denen wir selbst polieren.</p>
+          <a class="pfeil" href="https://glossmaster.de/shop/">Zum Shop</a>
+        </div>
+        <p class="partnerzeile">Partner: Design911 · Werk96 · Dampfdrache</p>
+      </div>
+      <div class="karte-kontakt">
+        <dl>
+          <div><dt>Studio</dt><dd>GlossMaster<br />Carl-Zeiss-Straße 87<br />73431 Aalen</dd></div>
+          <div><dt>Termine</dt><dd>Nur nach Vereinbarung</dd></div>
+          <div><dt>Telefon</dt><dd><a href="tel:+4915259304495">01525 9304495</a></dd></div>
+          <div><dt>E-Mail</dt><dd><a href="mailto:info@glossmaster.de">info@glossmaster.de</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <img src="../assets/bilder/logo.png" alt="GlossMaster" width="900" height="332" loading="lazy" />
+    <nav aria-label="Rechtliches und Social Media">
+      <a href="https://glossmaster.de/impressum/">Impressum</a>
+      <a href="https://glossmaster.de/datenschutzerklaerung/">Datenschutz</a>
+      <a href="https://glossmaster.de/our-terms/">AGB</a>
+      <a href="https://glossmaster.de/agbs-fuer-schulungen/">AGB Schulungen</a>
+      <a href="https://glossmaster.de/widerruf/">Widerruf</a>
+      <a href="https://www.instagram.com/glossmaster_official">Instagram</a>
+      <a href="https://www.facebook.com/glossmaster_official">Facebook</a>
+    </nav>
+    <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
+  </div>
+</footer>
+
+<div class="leiste" aria-label="Schnellkontakt">
+  <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
+  <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
+</div>
+
+<script>
+  // Messskala: Scrolltiefe als Schichtdicke (0–120 µm), wechselt auf dunklem Grund die Farbe
+  (function () {
+    var skala = document.getElementById('skala'), zeiger = document.getElementById('zeiger');
+    var dunkle = document.querySelectorAll('.academy, .fuss');
+    function neu() {
+      var max = document.documentElement.scrollHeight - innerHeight;
+      var p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+      zeiger.style.top = (p * 100) + '%';
+      zeiger.textContent = Math.round(p * 120) + ' µm';
+      var mitte = innerHeight / 2, dunkel = false;
+      dunkle.forEach(function (d) { var r = d.getBoundingClientRect(); if (r.top < mitte && r.bottom > mitte) dunkel = true; });
+      skala.classList.toggle('dunkel', dunkel);
+      // erst nach dem Hero einblenden, damit sie nicht über dem Foto liegt
+      skala.classList.toggle('an', document.querySelector('.hero').getBoundingClientRect().bottom < mitte);
+    }
+    addEventListener('scroll', neu, { passive: true });
+    addEventListener('resize', neu);
+    neu();
+  })();
+</script>
+</body>
+</html>
