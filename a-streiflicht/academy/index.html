@@ -35,6 +35,13 @@
   .kurs .fuss-zeile { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--linie); }
   .kurs .preis { font-size: 28px; font-weight: 800; font-stretch: 112%; }
   .kurs .knopf { min-height: 46px; padding: 0 18px; font-size: 15px; }
+  /* Kurs-Video im Hintergrund der Karte: Standbild gedimmt, beim Abspielen heller */
+  .kurs { position: relative; isolation: isolate; overflow: hidden; }
+  .kurs-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; opacity: .35; transform: scale(1.05); transition: opacity .6s ease, transform 1.4s ease; }
+  .kurs:has(.kurs-video)::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(180deg, rgba(22,23,31,.3) 0%, rgba(22,23,31,.55) 40%, rgba(22,23,31,.93) 100%); }
+  .kurs:has(.kurs-video) :is(h3, .dauer, .haken) { text-shadow: 0 1px 12px rgba(0,0,0,.7); }
+  .kurs.laeuft .kurs-video { opacity: .95; transform: scale(1); }
   .kurs.gross { grid-column: span 2; background: linear-gradient(140deg, #2a1734, var(--flaeche) 60%); border-color: rgba(211,155,234,.4); }
   .kurs.gross h3 { font-size: clamp(30px, 2.8vw, 44px); }
   .kurs.breit { grid-column: span 2; }
@@ -101,7 +108,7 @@
 
 <main>
   <section class="seitenkopf mit-bild">
-    <figure class="bild"><img src="../../assets/bilder/schulung-polieren.jpg" alt="Teilnehmer poliert unter Anleitung von Marcello Marino" /></figure>
+    <figure class="bild"><video data-loop="kopf" data-src="../../assets/video/academy-4x5.mp4" poster="../../assets/video/academy-4x5.jpg" muted loop playsinline preload="none" aria-label="Marcello Marino poliert einen blauen Porsche 996 im Studio Aalen"></video></figure>
     <div class="huelle">
       <p class="eyebrow">GlossMaster Academy · Aalen</p>
       <h1>Schulungen am echten <em>Lack.</em></h1>
@@ -154,30 +161,35 @@
       <h2 id="t-kurse" style="margin-bottom:40px">Sieben Kurse. Alle <em>1:1.</em></h2>
       <div class="kurse">
         <article class="kurs gross">
+          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/komplett-4x3.mp4" poster="../../assets/video/komplett-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="dauer">2 Tage · Intensiv-Training</span>
           <h3>Komplettaufbereitung</h3>
           <ul class="haken"><li>Innen und außen</li><li>Der ganze Ablauf an einem Fahrzeug</li><li>Vom Waschen bis zum Finish</li></ul>
           <div class="fuss-zeile"><span class="preis">890 €</span><a class="knopf voll" href="https://glossmaster.de/product-category/glossmaster-academy/">Kurs buchen</a></div>
         </article>
         <article class="kurs">
+          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/polieren-4x3.mp4" poster="../../assets/video/polieren-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="dauer">ca. 4–6 Std.</span>
           <h3>Polierschulung</h3>
           <ul class="haken"><li>Lackanalyse und Anschliff</li><li>Pad- und Politurwahl</li><li>Hochglanzfinish</li></ul>
           <div class="fuss-zeile"><span class="preis">379 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
         </article>
         <article class="kurs">
+          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/keramik-4x3.mp4" poster="../../assets/video/keramik-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="dauer">ca. 4–6 Std.</span>
           <h3>Keramik&shy;versiegelung</h3>
           <ul class="haken"><li>Chemische Vorbereitung</li><li>Auftrag und Leveln</li><li>Pflege für Langzeitschutz</li></ul>
           <div class="fuss-zeile"><span class="preis">419 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
         </article>
         <article class="kurs">
+          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/leder-4x3.mp4" poster="../../assets/video/leder-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="dauer">ca. 4–6 Std.</span>
           <h3>Lederreparatur</h3>
           <ul class="haken"><li>Sitze reparieren</li><li>Farbe angleichen</li><li>Originaloptik zurückholen</li></ul>
           <div class="fuss-zeile"><span class="preis">429 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
         </article>
         <article class="kurs">
+          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/innen-4x3.mp4" poster="../../assets/video/innen-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="dauer">ca. 4–6 Std.</span>
           <h3>Innen&shy;aufbereitung</h3>
           <ul class="haken"><li>Leder und Stoff pflegen</li><li>Flecken entfernen</li><li>Kunststoff pflegen</li></ul>
@@ -190,6 +202,7 @@
           <div class="fuss-zeile"><span class="preis">459 €</span><a class="knopf rand" href="https://glossmaster.de/product-category/glossmaster-academy/">Buchen</a></div>
         </article>
         <article class="kurs breit">
+          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/business-4x3.mp4" poster="../../assets/video/business-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
           <span class="dauer">Persönliches Coaching</span>
           <h3>Business Coaching</h3>
           <ul class="haken"><li>Positionierung und Marketing</li><li>Content für Social Media</li><li>Preise und Kundengewinnung</li></ul>
@@ -277,5 +290,6 @@
   <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
   <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
 </div>
+<script src="../video.js" defer></script>
 </body>
 </html>
