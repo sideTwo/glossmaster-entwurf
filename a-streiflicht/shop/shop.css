@@ -1,0 +1,142 @@
+/* Shop-Entwurf – ergänzt stil.css. Gleiche Farben, Schriften und Knöpfe wie die übrige Seite.
+   In WordPress wird daraus CSS für die WooCommerce-Bausteine (Produktliste, Produktseite, Warenkorb, Kasse). */
+
+/* Warenkorb im Kopf */
+.korb-link { position: relative; display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 50%;
+  border: 1.5px solid rgba(236,234,240,.25); color: var(--text); text-decoration: none; }
+.korb-link svg { width: 22px; height: 22px; }
+.korb-link [data-korb-zahl] { position: absolute; top: -4px; right: -4px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px;
+  background: var(--violett); color: #fff; font-size: 12px; font-weight: 700; display: grid; place-items: center; }
+.korb-link [data-korb-zahl][hidden] { display: none; }
+.kopf-rechts { display: flex; align-items: center; gap: 12px; }
+.knopf.klein { min-height: 42px; padding: 0 16px; font-size: 15px; }
+
+.shopkopf { padding: clamp(48px, 7vw, 110px) 0 clamp(28px, 4vw, 48px); }
+.shopkopf h1 { font-size: clamp(38px, 4.6vw, 84px); font-weight: 800; margin: 20px 0 18px; max-width: 16ch; }
+.reiter { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.reiter a { text-decoration: none; padding: 10px 18px; border-radius: 999px; border: 1.5px solid var(--linie); color: var(--gedimmt); font-weight: 600; font-size: 15px; }
+.reiter a:hover { color: var(--text); border-color: var(--violett-hell); }
+
+/* Produktkarten: Produktfoto auf heller Fläche (Packshots haben weißen Grund) */
+.produkte { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.produkt { display: flex; flex-direction: column; text-decoration: none; color: inherit; background: var(--flaeche); border: 1px solid var(--linie);
+  border-radius: 20px; overflow: hidden; transition: border-color .25s ease, transform .25s ease; }
+.produkt:hover { border-color: rgba(211,155,234,.5); transform: translateY(-2px); }
+.produkt-bild { position: relative; aspect-ratio: 1 / 1; background: #ecebf0; }
+.produkt-bild img { width: 100%; height: 100%; object-fit: contain; padding: 8%; transition: transform .5s ease; }
+.produkt:hover .produkt-bild img { transform: scale(1.04); }
+.produkt-text { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.stufe { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--violett-hell); }
+.produkt h3 { font-size: clamp(21px, 1.6vw, 26px); font-weight: 760; }
+.produkt p { color: var(--gedimmt); font-size: 16px; line-height: 1.45; }
+.produkt-fuss { margin-top: auto; padding-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.preis { font-size: 22px; font-weight: 800; font-stretch: 112%; }
+.nicht-da { position: absolute; left: 14px; bottom: 14px; background: rgba(14,15,20,.85); color: var(--text); font-size: 13px; font-weight: 700;
+  padding: 6px 12px; border-radius: 999px; }
+.nicht-da.gross { position: static; display: inline-flex; align-items: center; min-height: 52px; padding: 0 20px; border: 1.5px solid var(--linie); }
+
+/* Schulungen als Liste */
+.kurs-liste { border-top: 1px solid var(--linie); }
+.kurs-zeile { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto auto; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--linie); }
+.kurs-zeile .kurs-icon {
+  width: 96px; height: 72px; padding: 18px; object-fit: contain;
+  border: 1px solid var(--linie); border-radius: 12px; background: var(--flaeche);
+}
+.kurs-zeile b { display: block; font-size: 19px; font-weight: 720; }
+.kurs-zeile span { color: var(--gedimmt); font-size: 15px; }
+.kurs-zeile .preis { color: var(--text); font-size: 20px; white-space: nowrap; }
+.shop-hinweis { margin-top: 18px; font-size: 15px; color: var(--gedimmt); }
+
+/* Produktseite */
+.produktseite { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: start;
+  padding-top: clamp(36px, 5vw, 72px); padding-bottom: clamp(64px, 8vw, 120px); }
+.galerie { position: sticky; top: calc(var(--kopf) + 20px); display: grid; gap: 12px; }
+.galerie-gross { aspect-ratio: 1 / 1; background: #ecebf0; border-radius: 22px; overflow: hidden; }
+.galerie-gross img { width: 100%; height: 100%; object-fit: contain; padding: 6%; }
+.galerie-klein { display: flex; gap: 10px; }
+.galerie-klein button { width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: #ecebf0; border: 2px solid transparent; padding: 0; cursor: pointer; }
+.galerie-klein button[aria-current] { border-color: var(--violett); }
+.galerie-klein img { width: 100%; height: 100%; object-fit: contain; padding: 6px; }
+.kauf { display: flex; flex-direction: column; gap: 18px; }
+.zurueck { color: var(--gedimmt); text-decoration: none; font-weight: 600; font-size: 15px; }
+.kauf h1 { font-size: clamp(34px, 3.4vw, 58px); font-weight: 800; margin: 0; }
+.preis-gross { font-size: clamp(28px, 2.2vw, 36px); font-weight: 800; font-stretch: 112%; }
+.preis-gross small { display: block; font-size: 14px; font-weight: 500; font-stretch: 100%; color: var(--gedimmt); margin-top: 4px; }
+.varianten { border: 0; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.varianten legend { font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--gedimmt); margin-bottom: 10px; }
+.varianten label { cursor: pointer; }
+.varianten input { position: absolute; opacity: 0; }
+.varianten span { display: flex; flex-direction: column; min-width: 140px; padding: 12px 18px; border-radius: 14px; border: 1.5px solid var(--linie); font-weight: 700; }
+.varianten span small { font-weight: 500; color: var(--gedimmt); margin-top: 2px; }
+.varianten input:checked + span { border-color: var(--violett); background: rgba(176,75,214,.14); }
+.varianten input:focus-visible + span { outline: 2px solid var(--violett-hell); outline-offset: 3px; }
+.kauf-zeile { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.kauf-zeile .knopf { min-height: 52px; padding: 0 28px; }
+.menge { display: inline-flex; align-items: center; border: 1.5px solid var(--linie); border-radius: 999px; height: 52px; }
+.menge button { width: 46px; height: 100%; background: none; border: 0; color: var(--text); font-size: 22px; cursor: pointer; }
+.menge input { width: 44px; text-align: center; background: none; border: 0; color: var(--text); font: inherit; font-weight: 700; -moz-appearance: textfield; }
+.menge input::-webkit-inner-spin-button { -webkit-appearance: none; }
+.kauf .haken { font-size: 16px; gap: 8px; padding-top: 18px; border-top: 1px solid var(--linie); }
+.beschreibung h2 { font-size: 24px; margin: 10px 0 12px; }
+.beschreibung p { color: var(--gedimmt); margin-bottom: 12px; }
+
+/* Warenkorb und Kasse */
+.korb-raster { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start;
+  padding: clamp(36px, 5vw, 72px) 0 clamp(64px, 8vw, 120px); }
+.position { display: grid; grid-template-columns: 84px minmax(0, 1fr) auto auto 40px; gap: 16px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--linie); }
+.position img { width: 84px; height: 84px; border-radius: 14px; object-fit: cover; }
+.position img.hell { background: #ecebf0; object-fit: contain; padding: 6px; }
+.pos-text b { display: block; font-size: 18px; }
+.pos-text span { color: var(--gedimmt); font-size: 15px; }
+.position .menge { height: 44px; }
+.position .menge button { width: 38px; }
+.pos-summe { white-space: nowrap; }
+.entfernen { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--linie); background: none; color: var(--gedimmt); font-size: 20px; cursor: pointer; }
+.box { background: var(--flaeche); border: 1px solid var(--linie); border-radius: 20px; padding: 26px 26px 24px; position: sticky; top: calc(var(--kopf) + 20px); }
+.box h2 { font-size: 24px; margin: 0 0 14px; }
+.summe { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--linie); font-size: 16px; }
+.summe span { color: var(--gedimmt); }
+.summe.gesamt { border-bottom: 0; padding-top: 16px; font-size: 22px; font-weight: 800; }
+.summe.gesamt span { color: var(--text); }
+.mwst { font-size: 14px; color: var(--gedimmt); margin-bottom: 18px; }
+.box .knopf { width: 100%; }
+.leer { padding: 40px 0; display: grid; gap: 18px; justify-items: start; }
+
+.kasse-form { display: grid; gap: 28px; }
+.kasse-form fieldset { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kasse-form legend { font-size: 22px; font-weight: 760; font-stretch: 125%; margin-bottom: 14px; }
+.feld { display: grid; gap: 6px; }
+.feld.ganz { grid-column: 1 / -1; }
+.feld label { font-size: 14px; font-weight: 600; color: var(--gedimmt); }
+.feld input, .feld select { height: 52px; border-radius: 12px; border: 1.5px solid var(--linie); background: var(--grund); color: var(--text); padding: 0 14px; font: inherit; }
+.feld input:focus, .feld select:focus { outline: none; border-color: var(--violett-hell); }
+.zahlung { display: grid; gap: 10px; }
+.zahlung label { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 14px; border: 1.5px solid var(--linie); cursor: pointer; font-weight: 600; }
+.zahlung input { accent-color: var(--violett); width: 18px; height: 18px; }
+.zahlung small { color: var(--gedimmt); font-weight: 500; margin-left: auto; }
+.zustimmung { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; color: var(--gedimmt); }
+.zustimmung input { accent-color: var(--violett); width: 18px; height: 18px; margin-top: 3px; flex: none; }
+.zustimmung a { color: var(--text); }
+.entwurf-hinweis { padding: 16px 18px; border-radius: 14px; background: rgba(176,75,214,.14); border: 1px solid rgba(211,155,234,.4); font-size: 15px; }
+
+@media (max-width: 1080px) { .produkte { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) {
+  .produktseite, .korb-raster { grid-template-columns: minmax(0, 1fr); }
+  .galerie, .box { position: static; }
+  .kurs-zeile { grid-template-columns: 72px minmax(0, 1fr) auto; }
+  .kurs-zeile .kurs-icon { width: 72px; height: 56px; padding: 12px; }
+  .kurs-zeile .knopf { grid-column: 2 / -1; justify-self: start; }
+  .korb-link { width: 42px; height: 42px; }
+}
+@media (max-width: 560px) {
+  .produkte { grid-template-columns: minmax(0, 1fr); }
+  .kurs-zeile { grid-template-columns: 64px minmax(0, 1fr); gap: 8px 14px; }
+  .kurs-zeile .kurs-icon { width: 64px; height: 50px; padding: 10px; grid-row: span 2; }
+  .kurs-zeile .preis, .kurs-zeile .knopf { grid-column: 2; }
+  .kasse-form fieldset { grid-template-columns: minmax(0, 1fr); }
+  .position { grid-template-columns: 64px minmax(0, 1fr) 36px; }
+  .position img { width: 64px; height: 64px; }
+  .position .menge { grid-column: 2; justify-self: start; }
+  .pos-summe { grid-column: 2; }
+  .entfernen { grid-column: 3; grid-row: 1; }
+}

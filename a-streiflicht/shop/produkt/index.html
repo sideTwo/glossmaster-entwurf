@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Produkt | GlossMaster Shop</title>
+<!-- Entwurf – Produktseite (eine Vorlage für alle Pads, ?p=…). In WordPress: Elementor-Vorlage „Einzelprodukt“ mit den
+     WooCommerce-Bausteinen Galerie, Preis, Varianten, „In den Warenkorb“ – Funktion bleibt WooCommerce. -->
+<link rel="preload" href="../../../assets/schrift/archivo-latin-wdth-wght.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="../../stil.css" />
+<link rel="stylesheet" href="../shop.css" />
+</head>
+<body data-wurzel="../../../" data-shop="../">
+
+<header class="kopf">
+  <div class="huelle">
+    <a class="logo" href="../../" aria-label="GlossMaster – zur Startseite"><img src="../../../assets/bilder/logo.png" alt="GlossMaster – Detailing, Carcare, Passion" width="900" height="332" /></a>
+    <nav class="haupt" aria-label="Hauptmenü">
+      <a href="../../preisliste/">Aufbereitung</a>
+      <a href="../../academy/">Academy</a>
+      <a href="../" aria-current="page">Shop</a>
+      <a href="../../qualitaetsbetrieb/">Qualitätsbetrieb</a>
+      <a href="../../kontakt/">Kontakt</a>
+    </nav>
+    <div class="kopf-rechts">
+      <a class="korb-link" href="../warenkorb/" aria-label="Warenkorb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.2 11h10.4L20 8H6.4"/><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="16.5" cy="19.5" r="1.4"/></svg><span data-korb-zahl hidden>0</span></a>
+      <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
+    </div>
+  </div>
+  <nav class="menue-zeile" aria-label="Hauptmenü mobil">
+    <a href="../../preisliste/">Aufbereitung</a>
+    <a href="../../academy/">Academy</a>
+    <a href="../" aria-current="page">Shop</a>
+    <a href="../../qualitaetsbetrieb/">Qualitätsbetrieb</a>
+    <a href="../../kontakt/">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+  <div class="huelle produktseite" data-produkt></div>
+</main>
+
+<footer class="fuss">
+  <div class="huelle">
+    <img src="../../../assets/bilder/logo.png" alt="GlossMaster" width="900" height="332" loading="lazy" />
+    <nav aria-label="Rechtliches und Social Media">
+      <a href="https://glossmaster.de/impressum/">Impressum</a>
+      <a href="https://glossmaster.de/datenschutzerklaerung/">Datenschutz</a>
+      <a href="https://glossmaster.de/our-terms/">AGB</a>
+      <a href="https://glossmaster.de/widerruf/">Widerruf</a>
+      <a href="https://www.instagram.com/glossmaster_official">Instagram</a>
+    </nav>
+    <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
+    <p class="ki-hinweis">Entwurf: Warenkorb und Kasse nur zur Ansicht, es wird nichts bestellt.</p>
+  </div>
+</footer>
+
+<div class="leiste" aria-label="Schnellkontakt">
+  <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
+  <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
+</div>
+<script src="../produkte.js"></script>
+<script src="../shop.js"></script>
+</body>
+</html>

@@ -65,7 +65,7 @@
   .zitat-gross { font-size: clamp(26px, 2.4vw, 40px); font-weight: 650; font-stretch: 112%; line-height: 1.2; }
   .zitat-gross cite { display: block; margin-top: 16px; font-size: 15px; font-weight: 500; font-style: normal; font-stretch: 100%; color: var(--gedimmt); }
 
-  .bilderreihe { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 14px; margin-top: clamp(56px, 7vw, 100px); }
+  .bilderreihe { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: clamp(56px, 7vw, 100px); }
   .bilderreihe figure { border-radius: 18px; height: clamp(320px, 30vw, 480px); }
   .bilderreihe img { width: 100%; height: 100%; object-fit: cover; }
   .bilderreihe figure:nth-child(2) { margin-top: 48px; }
@@ -92,7 +92,6 @@
     .punkte { grid-template-columns: minmax(0, 1fr); }
     .bilderreihe { grid-template-columns: 1fr 1fr; }
     .bilderreihe figure:nth-child(2) { margin-top: 0; }
-    .bilderreihe figure:first-child { grid-column: span 2; }
     .bilderreihe figure { height: 280px; }
   }
   @media (max-width: 560px) {
@@ -102,7 +101,6 @@
     .vorteil .icon { width: 44px; height: 44px; }
     .kurs .fuss-zeile { flex-wrap: wrap; }
     .bilderreihe { grid-template-columns: minmax(0, 1fr); }
-    .bilderreihe figure:first-child { grid-column: auto; }
     .zertifikate { height: 380px; }
   }
 </style>
@@ -115,7 +113,7 @@
     <nav class="haupt" aria-label="Hauptmenü">
       <a href="../preisliste/">Aufbereitung</a>
       <a href="../academy/" aria-current="page">Academy</a>
-      <a href="https://glossmaster.de/shop/">Shop</a>
+      <a href="../shop/">Shop</a>
       <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
       <a href="../kontakt/">Kontakt</a>
     </nav>
@@ -124,7 +122,7 @@
   <nav class="menue-zeile" aria-label="Hauptmenü mobil">
     <a href="../preisliste/">Aufbereitung</a>
     <a href="../academy/" aria-current="page">Academy</a>
-    <a href="https://glossmaster.de/shop/">Shop</a>
+    <a href="../shop/">Shop</a>
     <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
     <a href="../kontakt/">Kontakt</a>
   </nav>
@@ -268,7 +266,6 @@
         </div>
       </div>
       <div class="bilderreihe">
-        <figure class="streif"><img src="../../assets/bilder/marcello-tafel-ki.jpg" alt="Marcello Marino erklärt den Lackaufbau am Whiteboard (Kleidung per KI angepasst)" loading="lazy" style="object-position: 50% 30%" /><span class="ki-marke">KI-bearbeitet</span></figure>
         <figure><img src="../../assets/bilder/leder-vorher-nachher.jpg" alt="Ledersitz vor und nach der Reparatur" loading="lazy" /></figure>
         <figure><img src="../../assets/bilder/schulung-polieren.jpg" alt="Teilnehmer poliert unter Anleitung von Marcello Marino" loading="lazy" /></figure>
       </div>
