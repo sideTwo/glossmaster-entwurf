@@ -50,12 +50,16 @@
         </div>
       </a>`).join('');
     const kurse = document.querySelector('[data-kurse]');
+    // Schulungen als kompakte Karten (Foto, Dauer, Preis, direkt in den Warenkorb) – bewusst kleiner als die Kurskarten der Academy
     if (kurse) kurse.innerHTML = P.filter(p => p.art === 'kurs').map(p => `
-      <div class="kurs-zeile">
-        <img class="kurs-icon" src="${W}assets/bilder/shop/schulungs-icons/lucide/${kursIcons[p.id] || 'presentation'}.svg" alt="" width="96" height="72" loading="lazy" />
-        <div><b>${esc(p.name)}</b><span>${esc(p.kurz)}</span></div>
-        <span class="preis">${euro(p.preis)}</span>
-        <button class="knopf voll klein" type="button" data-dazu="${p.id}">In den Warenkorb</button>
+      <div class="kurs-karte">
+        <div class="kurs-foto"><img src="${W}${p.bild}" alt="" loading="lazy" /></div>
+        <div class="kurs-text">
+          ${p.dauer ? `<span class="stufe">${esc(p.dauer)}</span>` : ''}
+          <h3>${esc(p.name)}</h3>
+          <p>${esc(p.kurz)}</p>
+          <div class="produkt-fuss"><span class="preis">${euro(p.preis)}</span><button class="knopf voll klein" type="button" data-dazu="${p.id}">In den Warenkorb</button></div>
+        </div>
       </div>`).join('');
   }
 
@@ -125,7 +129,7 @@
     liste.innerHTML = s.k.map((x, i) => { const p = finde(x.id); const v = p.art === 'pad' ? p.varianten.find(y => y.id === x.variante) : null; return `
       <div class="position">
         <img src="${W}${p.bild}" alt="" class="${p.art === 'pad' ? 'hell' : ''}" />
-        <div class="pos-text"><b>${esc(p.name)}</b><span>${v ? esc(v.name) + ' · ' : ''}${euro(preisVon(p, x.variante))}</span></div>
+        <div class="pos-text"><b>${esc(p.name)}</b><span>${v ? esc(v.name) + ' · ' : (p.art === 'kurs' ? 'Schulung · ' : '')}${euro(preisVon(p, x.variante))}</span></div>
         <div class="menge"><button type="button" data-pos-minus="${i}" aria-label="weniger">−</button><input type="number" min="1" value="${x.menge}" aria-label="Menge" readonly /><button type="button" data-pos-plus="${i}" aria-label="mehr">+</button></div>
         <b class="pos-summe">${euro(preisVon(p, x.variante) * x.menge)}</b>
         <button type="button" class="entfernen" data-pos-weg="${i}" aria-label="Entfernen">×</button>
@@ -144,7 +148,7 @@
     if (!s.k.length) korb.schreiben([{ id: 'hard-cut-125', variante: '3-pad-set', menge: 1 }]); // Beispiel, damit die Kasse etwas zeigt
     const t = summen();
     uebersicht.innerHTML = t.k.map(x => { const p = finde(x.id); const v = p.art === 'pad' ? p.varianten.find(y => y.id === x.variante) : null;
-      return `<div class="summe"><span>${x.menge} × ${esc(p.name)}${v ? ' (' + esc(v.name) + ')' : ''}</span><b>${euro(preisVon(p, x.variante) * x.menge)}</b></div>`; }).join('') + summenHtml(t);
+      return `<div class="summe"><span>${x.menge} × ${esc(p.name)}${v ? ' (' + esc(v.name) + ')' : (p.art === 'kurs' ? ' (Schulung)' : '')}</span><b>${euro(preisVon(p, x.variante) * x.menge)}</b></div>`; }).join('') + summenHtml(t);
     const f = document.querySelector('[data-kasse]');
     f.addEventListener('submit', e => { e.preventDefault(); document.querySelector('[data-kasse-hinweis]').hidden = false; });
   }

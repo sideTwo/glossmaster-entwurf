@@ -41,12 +41,12 @@ window.GM_PRODUKTE = [
     text: ['Das GlossMaster Mikrofaser-Pad vereint Knitted Technology mit hochwertiger Mikrofaser. Poliermittel verteilen sich gleichmäßiger – das bedeutet weniger Durchgänge, schnelleres Cutten und einen Lack, der kühl und geschont bleibt.']
   },
   // Schulungen (einfache Produkte, ohne Versand)
-  { id: 'komplett', name: 'Komplettaufbereitung – 2 Tage Intensivkurs', art: 'kurs', bild: 'assets/video/komplett-4x3.jpg', preis: 890, kurz: 'Innen und außen, der ganze Ablauf an einem Fahrzeug.' },
-  { id: 'polierschulung', name: 'Polierschulung 1:1', art: 'kurs', bild: 'assets/video/polieren-4x3.jpg', preis: 379, kurz: 'Lackanalyse, Pad- und Politurwahl, Hochglanzfinish.' },
-  { id: 'keramik', name: 'Keramikversiegelung Schulung', art: 'kurs', bild: 'assets/video/keramik-4x3.jpg', preis: 419, kurz: 'Vorbereitung, Auftrag und Leveln, Pflege.' },
-  { id: 'leder', name: 'Lederreparatur Schulung', art: 'kurs', bild: 'assets/video/leder-4x3.jpg', preis: 429, kurz: 'Sitze reparieren, Farbe angleichen.' },
-  { id: 'innen', name: 'Innenaufbereitung Schulung', art: 'kurs', bild: 'assets/video/innen-4x3.jpg', preis: 459, kurz: 'Leder und Stoff, Flecken, Kunststoffe.' },
-  { id: 'scheinwerfer', name: 'Scheinwerfer-Aufbereitung 1:1', art: 'kurs', bild: 'assets/bilder/shop/scheinwerfer.webp', preis: 459, kurz: 'Abkleben, mehrstufig schleifen, polieren.' },
-  { id: 'coaching', name: 'GlossMaster Business Coaching', art: 'kurs', bild: 'assets/bilder/business-tafel-ki-4x3.jpg', preis: 999, kurz: 'Persönliches Coaching per Telefon oder Video.' }
+  { id: 'komplett', dauer: '2 Tage', name: 'Komplettaufbereitung', art: 'kurs', bild: 'assets/video/komplett-4x3.jpg', preis: 890, kurz: 'Innen und außen, der ganze Ablauf an einem Fahrzeug.' },
+  { id: 'polierschulung', dauer: 'ca. 4–6 Std.', name: 'Polierschulung', art: 'kurs', bild: 'assets/video/polieren-4x3.jpg', preis: 379, kurz: 'Lackanalyse, Pad- und Politurwahl, Hochglanzfinish.' },
+  { id: 'keramik', dauer: 'ca. 4–6 Std.', name: 'Keramikversiegelung', art: 'kurs', bild: 'assets/video/keramik-4x3.jpg', preis: 419, kurz: 'Vorbereitung, Auftrag und Leveln, Pflege.' },
+  { id: 'leder', dauer: 'ca. 4–6 Std.', name: 'Lederreparatur', art: 'kurs', bild: 'assets/video/leder-4x3.jpg', preis: 429, kurz: 'Sitze reparieren, Farbe angleichen.' },
+  { id: 'innen', dauer: 'ca. 4–6 Std.', name: 'Innenaufbereitung', art: 'kurs', bild: 'assets/video/innen-4x3.jpg', preis: 459, kurz: 'Leder und Stoff, Flecken, Kunststoffe.' },
+  { id: 'scheinwerfer', dauer: '1:1-Schulung', name: 'Scheinwerfer-Aufbereitung', art: 'kurs', bild: 'assets/bilder/shop/scheinwerfer.webp', preis: 459, kurz: 'Abkleben, mehrstufig schleifen, polieren.' },
+  { id: 'coaching', dauer: 'Coaching per Telefon oder Video', name: 'Business Coaching', art: 'kurs', bild: 'assets/bilder/business-tafel-ki-4x3.jpg', preis: 999, kurz: 'Persönliches Coaching per Telefon oder Video.' }
 ];
 window.GM_VERSAND = 6.20; // DHL, wie im echten Shop; nur für Pads, nicht für Schulungen

@@ -47,6 +47,35 @@
 .kurs-zeile .preis { color: var(--text); font-size: 20px; white-space: nowrap; }
 .shop-hinweis { margin-top: 18px; font-size: 15px; color: var(--gedimmt); }
 
+/* Schulungen als kompakte Karten (Foto oben, 4 nebeneinander) */
+.kurse-kopf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 60px; align-items: end; margin-bottom: 36px; }
+.kurse-kopf h2 { margin-bottom: 0; }
+.kurs-karten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.kurs-karte { display: flex; flex-direction: column; background: var(--grund); border: 1px solid var(--linie); border-radius: 18px; overflow: hidden; }
+.kurs-foto { aspect-ratio: 4 / 3; overflow: hidden; }
+.kurs-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.kurs-karte:hover .kurs-foto img { transform: scale(1.04); }
+.kurs-text { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.kurs-text h3 { font-size: clamp(19px, 1.35vw, 23px); font-weight: 760; }
+.kurs-text p { color: var(--gedimmt); font-size: 15px; line-height: 1.45; }
+.kurs-text .produkt-fuss { padding-top: 14px; }
+.kurs-text .preis { font-size: 20px; }
+
+/* Hinweis auf die Academy statt Kursliste */
+.academy-band { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: stretch; min-height: 320px;
+  text-decoration: none; color: inherit; border-radius: 22px; overflow: hidden; border: 1px solid rgba(211,155,234,.35);
+  background: linear-gradient(120deg, #2a1734, var(--flaeche) 60%); }
+.academy-band img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.academy-band-text { padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 6px; }
+.academy-band-text h2 { margin: 8px 0 10px; }
+.academy-band-text p:not(.eyebrow) { color: var(--gedimmt); font-size: clamp(17px, 1.2vw, 20px); max-width: 34ch; margin-bottom: 18px; }
+.academy-band:hover .knopf { background: #c05ee4; }
+.academy-band .ki-marke { left: 12px; right: auto; }
+@media (max-width: 860px) {
+  .academy-band { grid-template-columns: minmax(0, 1fr); }
+  .academy-band img { height: 240px; }
+}
+
 /* Produktseite */
 .produktseite { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 80px); align-items: start;
   padding-top: clamp(36px, 5vw, 72px); padding-bottom: clamp(64px, 8vw, 120px); }
@@ -119,7 +148,9 @@
 .zustimmung a { color: var(--text); }
 .entwurf-hinweis { padding: 16px 18px; border-radius: 14px; background: rgba(176,75,214,.14); border: 1px solid rgba(211,155,234,.4); font-size: 15px; }
 
-@media (max-width: 1080px) { .produkte { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1080px) { .produkte { grid-template-columns: repeat(2, minmax(0, 1fr)); } .kurs-karten { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) { .kurse-kopf { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 480px) { .kurs-karten { grid-template-columns: minmax(0, 1fr); } .kurs-foto { aspect-ratio: 16 / 7; } }
 @media (max-width: 860px) {
   .produktseite, .korb-raster { grid-template-columns: minmax(0, 1fr); }
   .galerie, .box { position: static; }
