@@ -15,6 +15,8 @@
 <style>
   /* längere Überschrift (Marcellos Wunsch) → etwas kleiner als auf den anderen Unterseiten */
   .seitenkopf h1 { font-size: clamp(38px, 4.4vw, 80px); max-width: 15ch; text-shadow: 0 2px 30px rgba(14,15,20,.6); }
+  /* Bilal: am PC „Direkt vom Profi.“ in einer Zeile */
+  @media (min-width: 861px) { .seitenkopf h1 em { display: block; white-space: nowrap; } }
 
   /* Vorteile mit Icons */
   .vorteile { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--linie); border-left: 1px solid var(--linie); }
@@ -48,6 +50,8 @@
     background: linear-gradient(180deg, rgba(22,23,31,.3) 0%, rgba(22,23,31,.55) 40%, rgba(22,23,31,.93) 100%); }
   .kurs:has(.kurs-video) :is(h3, .dauer, .haken) { text-shadow: 0 1px 12px rgba(0,0,0,.7); }
   .kurs.laeuft .kurs-video { opacity: .95; transform: scale(1); }
+  .kurs .kurs-video.ki-clip { opacity: 0; }
+  .kurs.spielt .kurs-video.ki-clip { opacity: .95; }
   .kurs.gross { grid-column: span 2; background: linear-gradient(140deg, #2a1734, var(--flaeche) 60%); border-color: rgba(211,155,234,.4); }
   .kurs.gross h3 { font-size: clamp(30px, 2.8vw, 44px); }
   .kurse-fuss { margin-top: 20px; font-size: 15px; color: var(--gedimmt); }
@@ -139,7 +143,8 @@
 
 <main>
   <section class="seitenkopf mit-bild">
-    <figure class="bild"><video data-loop="kopf" data-src="../../assets/video/academy-4x5.mp4" poster="../../assets/video/academy-4x5.jpg" muted loop playsinline preload="none" aria-label="Marcello Marino poliert einen blauen Porsche 996 im Studio Aalen"></video></figure>
+    <figure class="bild"><img src="../../assets/bilder/marcello-poliert-ki.jpg" alt="Marcello Marino im GlossMaster-Pullover poliert einen blauen Porsche 996 (Kleidung per KI angepasst)" style="object-position: 50% 20%" /><video class="ki-clip" data-loop="kopf" data-src="../../assets/video/kopf-ki-4x5.mp4" muted loop playsinline preload="none" aria-hidden="true"></video><span class="ki-marke" style="top:16px;right:16px">KI-bearbeitet</span></figure>
+    <!-- Standbild (KI-bearbeitet) + Kling-Clip darüber, der erst einblendet, wenn er läuft. Altes Video academy-4x5 (roter Pulli) nicht mehr verwenden. -->
     <div class="huelle">
       <p class="eyebrow">GlossMaster Academy · Aalen</p>
       <h1>Professionelle Fahrzeug&shy;aufbereitung lernen. <em>Direkt vom Profi.</em></h1>
@@ -247,7 +252,7 @@
           <div class="fuss-zeile"><span class="preis">459 €</span><a class="knopf rand" href="https://glossmaster.de/product/scheinwerfer-aufbereitung-schulung/">Buchen</a></div>
         </article>
         <article class="kurs coaching">
-          <video class="kurs-video" data-loop="karte" data-src="../../assets/video/business-4x3.mp4" poster="../../assets/video/business-4x3.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+          <img class="kurs-video" src="../../assets/bilder/business-tafel-ki-4x3.jpg" alt="" loading="lazy" style="opacity:.55" /><video class="kurs-video ki-clip" data-loop="karte" data-src="../../assets/video/business-ki-4x3.mp4" muted loop playsinline preload="none" aria-hidden="true"></video><span class="ki-marke" style="top:auto;bottom:12px">KI-bearbeitet</span>
           <div class="kopfzeile">
             <h3>Business Coaching</h3>
             <span class="art">Keine Tagesschulung · 4 Wochen</span>
@@ -284,8 +289,8 @@
         </div>
       </div>
       <div class="bilderreihe">
-        <figure class="streif"><img src="../../assets/bilder/marcello-poliert.jpg" alt="Marcello Marino poliert einen blauen Porsche 996" loading="lazy" /></figure>
-        <figure><img src="../../assets/bilder/marcello-tafel.jpg" alt="Marcello Marino erklärt die Theorie am Whiteboard" loading="lazy" /></figure>
+        <figure class="streif"><img src="../../assets/bilder/marcello-tafel-ki.jpg" alt="Marcello Marino erklärt den Lackaufbau am Whiteboard (Kleidung per KI angepasst)" loading="lazy" style="object-position: 50% 30%" /><span class="ki-marke">KI-bearbeitet</span></figure>
+        <figure><img src="../../assets/bilder/leder-vorher-nachher.jpg" alt="Ledersitz vor und nach der Reparatur" loading="lazy" /></figure>
         <figure><img src="../../assets/bilder/schulung-polieren.jpg" alt="Teilnehmer poliert unter Anleitung von Marcello Marino" loading="lazy" /></figure>
       </div>
     </div>
@@ -360,6 +365,7 @@
       <a href="https://www.facebook.com/glossmaster_official">Facebook</a>
     </nav>
     <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
+    <p class="ki-hinweis">„KI-bearbeitet“: echtes Foto aus dem Studio, nur die Kleidung wurde mit KI angepasst; die kurzen Bewegungen darin sind mit KI animiert.</p>
   </div>
 </footer>
 

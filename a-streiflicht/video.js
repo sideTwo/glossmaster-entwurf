@@ -2,7 +2,9 @@
    - Videos laden erst, wenn sie gebraucht werden (data-src → src), vorher zeigt das Standbild (poster).
    - data-loop="kopf": läuft, solange der Seitenkopf sichtbar ist.
    - data-loop="karte": mit Maus beim Darüberfahren, am Handy die Karte in der Bildschirmmitte.
-   - Bei „Bewegung reduzieren“ oder Datensparmodus läuft nichts, das Standbild bleibt. */
+   - Bei „Bewegung reduzieren“ oder Datensparmodus läuft nichts, das Standbild bleibt.
+   - Klasse .ki-clip: Video liegt über einem Standbild und blendet erst ein, wenn es wirklich läuft
+     (Elternelement bekommt .spielt). Fehlt die Datei, bleibt einfach das Standbild stehen. */
 (() => {
   const vids = [...document.querySelectorAll('video[data-loop]')];
   if (!vids.length || !('IntersectionObserver' in window)) return;
@@ -12,12 +14,17 @@
   const maus = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const karteVon = v => v.closest('.kurs');
   const spiel = v => {
-    if (!v.getAttribute('src')) v.src = v.dataset.src;
+    if (v.dataset.fehlt) return;
+    if (!v.getAttribute('src')) {
+      v.addEventListener('playing', () => v.parentElement.classList.add('spielt'));
+      v.addEventListener('error', () => { v.dataset.fehlt = '1'; }, { once: true });
+      v.src = v.dataset.src;
+    }
     const p = v.play();
     if (p) p.catch(() => {});
     karteVon(v)?.classList.add('laeuft');
   };
-  const halt = v => { v.pause(); karteVon(v)?.classList.remove('laeuft'); };
+  const halt = v => { v.pause(); v.parentElement.classList.remove('spielt'); karteVon(v)?.classList.remove('laeuft'); };
 
   const kopf = new IntersectionObserver(es => es.forEach(e => (e.isIntersecting ? spiel : halt)(e.target)), { threshold: 0.15 });
   const mitte = new IntersectionObserver(es => es.forEach(e => (e.isIntersecting ? spiel : halt)(e.target)), { rootMargin: '-38% 0px -38% 0px' });

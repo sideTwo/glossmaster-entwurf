@@ -196,8 +196,11 @@
   <!-- ================= Hero ================= -->
   <section class="hero">
     <figure class="hero-foto">
-      <!-- Platzhalter bis zur Animation am Porsche 996 (Aufnahmen am 25.11.) -->
+      <!-- Standbild; der Kling-Hero (Marcello mit seinem Porsche 996) blendet darüber ein, sobald assets/video/hero-ki-16x9.mp4 da ist.
+           Wenn das Startbild aus ChatGPT da ist, ersetzt es hier das Platzhalterbild (hero-ki-16x9.jpg). -->
       <img src="../assets/bilder/porsche-studio.webp" alt="Porsche unter dem Wabenlicht im GlossMaster-Studio in Aalen" />
+      <video class="ki-clip" data-loop="kopf" data-src="../assets/video/hero-ki-16x9.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+      <span class="ki-marke nur-bei-video" style="z-index:3;top:auto;bottom:18px">KI-Video</span>
     </figure>
     <div class="huelle hero-inhalt">
       <div class="hero-text">
@@ -265,7 +268,7 @@
       </div>
       <div class="mosaik">
         <a class="kachel gross streif" href="preisliste/#polieren">
-          <img style="object-position: 50% 10%" src="../assets/bilder/aufbereitung-polieren-hoch.jpg" alt="Marcello Marino poliert einen blauen Porsche 996" loading="lazy" />
+          <img style="object-position: 50% 20%" src="../assets/bilder/marcello-poliert-ki.jpg" alt="Marcello Marino im GlossMaster-Pullover poliert einen blauen Porsche 996 (Kleidung per KI angepasst)" loading="lazy" /><span class="ki-marke">KI-bearbeitet</span>
           <div class="kachel-text"><span class="preis">ab 249 €</span><h3>Polieren &amp; Lackkorrektur</h3><p>1–2-Step-Maschinenpolitur, Kontrolle mit Speziallicht. Unser Bestseller.</p></div>
         </a>
         <a class="kachel" href="preisliste/#keramik">
@@ -393,7 +396,7 @@
       <a href="https://www.facebook.com/glossmaster_official">Facebook</a>
     </nav>
     <span class="von">Webseite von <a href="https://sidetwo.de">sideTwo</a></span>
-    <p class="ki-hinweis">Mit „KI-Bild“ markierte Fotos sind mit KI erstellte Symbolbilder, keine dokumentierten Kundenaufträge.</p>
+    <p class="ki-hinweis">Mit „KI-Bild“ oder „KI-Video“ markierte Inhalte sind mit KI erstellt, keine dokumentierten Kundenaufträge. „KI-bearbeitet“: echtes Foto, nur die Kleidung wurde mit KI angepasst.</p>
   </div>
 </footer>
 
@@ -401,5 +404,6 @@
   <a class="knopf voll" href="tel:+4915259304495">Anrufen</a>
   <a class="knopf rand" href="https://wa.me/4915259304495">WhatsApp</a>
 </div>
+<script src="video.js" defer></script>
 </body>
 </html>
