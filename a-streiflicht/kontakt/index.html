@@ -70,14 +70,16 @@
       <a href="../kontakt/" aria-current="page">Kontakt</a>
     </nav>
     <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="menue" aria-label="Men&uuml; &ouml;ffnen"><span></span><span></span></button>
   </div>
-  <nav class="menue-zeile" aria-label="Hauptmenü mobil">
+  <nav class="menue-zeile" id="menue" aria-label="Hauptmenü mobil">
     <a href="../preisliste/">Aufbereitung</a>
     <a href="../academy/">Academy</a>
     <a href="../shop/">Shop</a>
     <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
     <a href="../kontakt/" aria-current="page">Kontakt</a>
   </nav>
+  <script>(function(){var k=document.querySelector('.kopf'),b=k.querySelector('.menue-knopf');function z(o){k.classList.toggle('offen',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Men\u00fc schlie\u00dfen':'Men\u00fc \u00f6ffnen')}b.addEventListener('click',function(){z(!k.classList.contains('offen'))});k.querySelectorAll('.menue-zeile a').forEach(function(a){a.addEventListener('click',function(){z(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')z(false)})})();</script>
 </header>
 
 <main>

@@ -102,7 +102,7 @@ h1 em, h2 em, h3 em { font-style: normal; color: var(--violett-hell); }
 .kopf .haupt a:hover { color: var(--text); }
 .kopf .haupt a[aria-current="page"] { color: var(--text); border-bottom-color: var(--violett); }
 .kopf .knopf { min-height: 46px; padding: 0 20px; font-size: 15px; }
-.kopf .menue-zeile { display: none; }
+.kopf .menue-zeile, .menue-knopf { display: none; }
 
 /* ---------- Abschnitte ---------- */
 .abschnitt { padding: clamp(80px, 10vw, 150px) 0; }
@@ -191,16 +191,30 @@ h1 em, h2 em, h3 em { font-style: normal; color: var(--violett-hell); }
 }
 @media (max-width: 960px) {
   .kopf .haupt, .kopf .knopf { display: none; }
-  .kopf .menue-zeile {
-    display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
-    padding: 0 var(--rand) 10px; margin-top: -6px;
+  /* Handy/Tablet: eine Zeile – Logo links, Menü-Knopf rechts; das Menü klappt darunter auf */
+  .kopf .huelle { justify-content: flex-start; gap: 12px; }
+  .kopf .logo { margin-right: auto; }
+  .menue-knopf {
+    display: inline-grid; place-items: center; width: 46px; height: 46px; padding: 0; border-radius: 50%;
+    border: 1px solid var(--linie); background: transparent; color: var(--text); cursor: pointer;
   }
-  .menue-zeile::-webkit-scrollbar { display: none; }
+  .menue-knopf span { grid-area: 1 / 1; width: 20px; height: 2px; border-radius: 2px; background: currentColor; transition: transform .25s ease; }
+  .menue-knopf span:first-child { transform: translateY(-4px); }
+  .menue-knopf span:last-child { transform: translateY(4px); }
+  .kopf.offen .menue-knopf { border-color: var(--violett); }
+  .kopf.offen .menue-knopf span:first-child { transform: rotate(45deg); }
+  .kopf.offen .menue-knopf span:last-child { transform: rotate(-45deg); }
+  .kopf.offen .menue-zeile {
+    display: flex; flex-direction: column; padding: 4px var(--rand) 18px; border-top: 1px solid var(--linie);
+  }
   .menue-zeile a {
-    flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px;
-    border: 1px solid var(--linie); border-radius: 999px; text-decoration: none; font-size: 15px; font-weight: 600; color: var(--gedimmt);
+    display: flex; align-items: center; justify-content: space-between; min-height: 58px;
+    border-bottom: 1px solid var(--linie); text-decoration: none; font-size: 20px; font-weight: 600; color: var(--text);
   }
-  .menue-zeile a[aria-current="page"] { color: var(--text); border-color: var(--violett); }
+  .menue-zeile a:last-child { border-bottom: 0; }
+  .menue-zeile a::after { content: "→"; color: var(--gedimmt); font-weight: 400; }
+  .menue-zeile a[aria-current="page"] { color: var(--violett-hell); }
+  .menue-zeile a[aria-current="page"]::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--violett); }
 }
 @media (max-width: 860px) {
   body { font-size: 17px; padding-bottom: 76px; }

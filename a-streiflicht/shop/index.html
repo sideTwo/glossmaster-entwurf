@@ -28,14 +28,16 @@
       <a class="korb-link" href="warenkorb/" aria-label="Warenkorb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h2.2l2.2 11h10.4L20 8H6.4"/><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="16.5" cy="19.5" r="1.4"/></svg><span data-korb-zahl hidden>0</span></a>
       <a class="knopf voll" href="tel:+4915259304495">01525 9304495</a>
     </div>
+    <button class="menue-knopf" type="button" aria-expanded="false" aria-controls="menue" aria-label="Men&uuml; &ouml;ffnen"><span></span><span></span></button>
   </div>
-  <nav class="menue-zeile" aria-label="Hauptmenü mobil">
+  <nav class="menue-zeile" id="menue" aria-label="Hauptmenü mobil">
     <a href="../preisliste/">Aufbereitung</a>
     <a href="../academy/">Academy</a>
     <a href="./" aria-current="page">Shop</a>
     <a href="../qualitaetsbetrieb/">Qualitätsbetrieb</a>
     <a href="../kontakt/">Kontakt</a>
   </nav>
+  <script>(function(){var k=document.querySelector('.kopf'),b=k.querySelector('.menue-knopf');function z(o){k.classList.toggle('offen',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Men\u00fc schlie\u00dfen':'Men\u00fc \u00f6ffnen')}b.addEventListener('click',function(){z(!k.classList.contains('offen'))});k.querySelectorAll('.menue-zeile a').forEach(function(a){a.addEventListener('click',function(){z(false)})});document.addEventListener('keydown',function(e){if(e.key==='Escape')z(false)})})();</script>
 </header>
 
 <main>
