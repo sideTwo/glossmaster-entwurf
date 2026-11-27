@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#282828"/><stop offset="1" stop-color="#141414"/></radialGradient>
+    <linearGradient id="metal" x2="0" y2="1"><stop stop-color="#e8e8e8"/><stop offset="1" stop-color="#9c9c9c"/></linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h320v180H0z"/>
+  <g fill="none" stroke="#787878">
+    <path opacity=".28" d="M123 25h74l37 65-37 65h-74L86 90z"/>
+    <path opacity=".15" d="m86 90-37 0-19-33 19-33h37l19 33m129 33h37l19 33-19 33h-37l-19-33"/>
+  </g>
+  <g transform="translate(160 90)" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <style>.accent{stroke:#aaaaaa}</style>
+    <path fill="url(#metal)" d="M-76 6q4-24 22-27 27-4 79-10L7 10q-7 13-21 17l-43 10q-12 3-15-11z"/>
+    <path fill="#232323" d="M-64 7q4-15 17-18l54-11-12 26q-6 12-19 15l-30 8q-9 2-9-6z"/>
+    <circle cx="-40" cy="8" r="12" fill="#656565" stroke="#cbcbcb"/>
+    <circle cx="-40" cy="8" r="5" fill="#dfdfdf" stroke="none"/>
+    <path class="accent" stroke-width="4" d="m38-20 28-8M32-4h47M25 13l41 10"/>
+
+  </g>
+</svg>

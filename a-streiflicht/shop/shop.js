@@ -25,16 +25,6 @@
     document.querySelectorAll('[data-korb-zahl]').forEach(el => { el.textContent = n; el.hidden = n === 0; });
   }
 
-  const kursIcons = {
-    komplett: 'car-front',
-    polierschulung: 'drill',
-    keramik: 'shield-check',
-    leder: 'scissors',
-    innen: 'armchair',
-    scheinwerfer: 'lightbulb',
-    coaching: 'presentation'
-  };
-
   /* ---------- Übersicht ---------- */
   const raster = document.querySelector('[data-raster]');
   if (raster) {
@@ -50,7 +40,6 @@
         </div>
       </a>`).join('');
     const kurse = document.querySelector('[data-kurse]');
-    // Schulungen als kompakte Karten (Foto, Dauer, Preis, direkt in den Warenkorb) – bewusst kleiner als die Kurskarten der Academy
     if (kurse) kurse.innerHTML = P.filter(p => p.art === 'kurs').map(p => `
       <div class="kurs-karte">
         <div class="kurs-foto"><img src="${W}${p.bild}" alt="" loading="lazy" /></div>

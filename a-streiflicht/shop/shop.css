@@ -35,24 +35,15 @@
   padding: 6px 12px; border-radius: 999px; }
 .nicht-da.gross { position: static; display: inline-flex; align-items: center; min-height: 52px; padding: 0 20px; border: 1.5px solid var(--linie); }
 
-/* Schulungen als Liste */
-.kurs-liste { border-top: 1px solid var(--linie); }
-.kurs-zeile { display: grid; grid-template-columns: 96px minmax(0, 1fr) auto auto; gap: 20px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--linie); }
-.kurs-zeile .kurs-icon {
-  width: 96px; height: 72px; padding: 18px; object-fit: contain;
-  border: 1px solid var(--linie); border-radius: 12px; background: var(--flaeche);
-}
-.kurs-zeile b { display: block; font-size: 19px; font-weight: 720; }
-.kurs-zeile span { color: var(--gedimmt); font-size: 15px; }
-.kurs-zeile .preis { color: var(--text); font-size: 20px; white-space: nowrap; }
+/* Hinweise */
 .shop-hinweis { margin-top: 18px; font-size: 15px; color: var(--gedimmt); }
 
-/* Schulungen als kompakte Karten (Foto oben, 4 nebeneinander) */
+/* Schulungskarten */
 .kurse-kopf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 60px; align-items: end; margin-bottom: 36px; }
 .kurse-kopf h2 { margin-bottom: 0; }
 .kurs-karten { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .kurs-karte { display: flex; flex-direction: column; background: var(--grund); border: 1px solid var(--linie); border-radius: 18px; overflow: hidden; }
-.kurs-foto { aspect-ratio: 4 / 3; overflow: hidden; }
+.kurs-foto { aspect-ratio: 16 / 9; overflow: hidden; }
 .kurs-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
 .kurs-karte:hover .kurs-foto img { transform: scale(1.04); }
 .kurs-text { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
@@ -150,20 +141,14 @@
 
 @media (max-width: 1080px) { .produkte { grid-template-columns: repeat(2, minmax(0, 1fr)); } .kurs-karten { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 860px) { .kurse-kopf { grid-template-columns: minmax(0, 1fr); } }
-@media (max-width: 480px) { .kurs-karten { grid-template-columns: minmax(0, 1fr); } .kurs-foto { aspect-ratio: 16 / 7; } }
+@media (max-width: 480px) { .kurs-karten { grid-template-columns: minmax(0, 1fr); } }
 @media (max-width: 860px) {
   .produktseite, .korb-raster { grid-template-columns: minmax(0, 1fr); }
   .galerie, .box { position: static; }
-  .kurs-zeile { grid-template-columns: 72px minmax(0, 1fr) auto; }
-  .kurs-zeile .kurs-icon { width: 72px; height: 56px; padding: 12px; }
-  .kurs-zeile .knopf { grid-column: 2 / -1; justify-self: start; }
   .korb-link { width: 42px; height: 42px; }
 }
 @media (max-width: 560px) {
   .produkte { grid-template-columns: minmax(0, 1fr); }
-  .kurs-zeile { grid-template-columns: 64px minmax(0, 1fr); gap: 8px 14px; }
-  .kurs-zeile .kurs-icon { width: 64px; height: 50px; padding: 10px; grid-row: span 2; }
-  .kurs-zeile .preis, .kurs-zeile .knopf { grid-column: 2; }
   .kasse-form fieldset { grid-template-columns: minmax(0, 1fr); }
   .position { grid-template-columns: 64px minmax(0, 1fr) 36px; }
   .position img { width: 64px; height: 64px; }

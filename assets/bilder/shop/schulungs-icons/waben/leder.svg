@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <defs>
+    <radialGradient id="bg"><stop stop-color="#282828"/><stop offset="1" stop-color="#141414"/></radialGradient>
+    <linearGradient id="metal" x2="0" y2="1"><stop stop-color="#e8e8e8"/><stop offset="1" stop-color="#9c9c9c"/></linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h320v180H0z"/>
+  <g fill="none" stroke="#787878">
+    <path opacity=".28" d="M123 25h74l37 65-37 65h-74L86 90z"/>
+    <path opacity=".15" d="m86 90-37 0-19-33 19-33h37l19 33m129 33h37l19 33-19 33h-37l-19-33"/>
+  </g>
+  <g transform="translate(160 90)" fill="none" stroke="#111111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <style>.accent{stroke:#aaaaaa}</style>
+    <path fill="url(#metal)" d="M-64-32q32-8 63 3 30 11 63 3v52q-32 13-63 2-30-11-63-3z"/>
+    <path fill="#3b3b3b" d="M-64-32q32-8 63 3 30 11 63 3v16Q31 0 0-11t-64-4z"/>
+    <path stroke="#c8c8c8" stroke-width="2.8" stroke-dasharray="5 7" d="M-53-18q26-5 52 5T52-7"/>
+    <path stroke="#b4b4b4" stroke-width="5" d="m22 20 30-36"/>
+    <path fill="#939393" d="m49-18 25-23 7 6-22 28z"/>
+
+  </g>
+</svg>
